@@ -260,23 +260,100 @@
     </div>
 
     <script>
-        // --- Core Functions ---
-        function openLetter() {
-            document.getElementById('envelope-screen').style.display = 'none';
-            const main = document.getElementById('main-content');
-            main.style.display = 'block';
-            setTimeout(() => { main.style.opacity = '1'; }, 50);
-            spawnEmoji({clientX: window.innerWidth/2, clientY: window.innerHeight/2}, '🤍');
-        }
+        // --- 68 Curated Messages for Flor ---
+        const rawCuteTexts = `
+i love u im excited to see u tmr 😸
+i love u too and i hope we can keep working w each other
+i love u to flor i love the future we’re building
+but i love u for u
+i love you i’m so excited to do halloween w u
+i love u good luck at ur game i hope it’s fun
+i just thought/realized i love u more than ever before if that’s even possible
+i put these efforts in bc i want to and i love u
+i’m sooo sorry for finding u attractive
+u da only snack i need
+sure cuz something something u make me smile something something
+look who’s the sleeping beauty now
+u make everything better fr fr
+wdym u got second hand embarrassment they were cute
+u take my breath away fr
+u so pretty fr
+ur funny and kind
+ur m strong
+ur alr bad asf bbg
+it will cuz ur so great
+you’re very eloquent with your words recently you make me feel at ease
+don’t be embarrassed u da goat
+there’s nothing wrong w u ur beautiful just the way u r n u shouldn’t feel ashamed about anything
+ur hot
+genuinely i look at ur ig daily
+u da honey bun
+u da baddest
+u da one
+your perseverance is endearing i wish i was as strong and brave as u r
+why don’t we have a weekly hour where we just glaze u
+it’s funny tho cuz the most likes i usually get is when i post u
+i’m sleeping now cutie
+it sucks flor i know and i will be happy to be there for you whenever you need it
+ik how hard ur trying
+u did nothing wrong flor you’ve been trying your best
+and i’ll support u no matter what
+i’m proud of u that ur putting urself out there and trying new things i struggle w that
+i’m glad ur sharing never stop sharing what’s going on and what makes u happy
+a good state of mind and healthy is all i want for u
+i’ve seen so much growth from u as a person
+while it is a shitty situation that u don’t deserve to be in i just wanted u to know you’re doing such a great job and i see how hard u try and care for everyone
+so i want to be there for u and now i see ur making growth and progress im confident u r on the right path
+but you are doing an amazing job baby
+i promise you’re making strides if u zoom out
+and while i know ur still anxious i noticed ur demeanour navigating it is so much better
+ik ur super stressed rn but pls take it easy on urself. all the stuff ur getting done and work u r doing is a lot but it’s good that ur organized and getting it done
+but i’m proud of u taking initiative
+good luck baby ik everything will work out how it should
+i hope it’s going well baby ik how much u care abt this :)
+it’s ok i’m happy to be here
+thank u for being so understanding baby
+i’m drunk n sleepy n can’t text good but i read that n it made me happy
+thank u for saying that it’s reassuring
+thank you so much flor this means a lot to me, i always feel reassured and calm after hearing u digest information and reply to me
+thank u goat 🙏
+i’m sleeping now so i’ll sleep more tmr but thank you baby for your support and kindness as always
+okok sounds good i’m good w whatever i just wanna spend time w u
+i’m ok w anything i’m just exited to see y
+i’ll see u soonnn
+i miss u too
+can i pls see u
+i just wanna nap w u
+my eyes r a bit tired not as bad as last week but more so my brain is tired i just want to cuddle u
+it’s ok we’ll be here for each other
+have fun at your concert tell me about it after :))
+happy thanksgiving :0 thankful for our time as well
+i’m home love
+it’ll work cuz we’re goated
+i’m just feeling very thankful for us tn
+`;
 
-        function spawnEmoji(e, emoji) {
-            const el = document.createElement('div');
-            el.innerHTML = emoji;
-            el.className = 'emoji-drop';
-            el.style.left = (e.clientX - 10) + 'px';
-            el.style.top = (e.clientY - 10) + 'px';
-            document.body.appendChild(el);
-            setTimeout(() => el.remove(), 1500);
+        const cuteTexts = rawCuteTexts
+            .split('\n')
+            .map(t => t.trim())
+            .filter(t => t.length > 0);
+
+        // Deck-shuffle logic: Never repeats back-to-back until all 68 are seen
+        let textDeck = [];
+
+        function showRandomText() {
+            if (textDeck.length === 0) {
+                // Refill and shuffle the deck
+                textDeck = [...cuteTexts].sort(() => Math.random() - 0.5);
+            }
+            const picked = textDeck.pop();
+            const display = document.getElementById('cute-text-display');
+            display.style.opacity = '0';
+            setTimeout(() => {
+                display.innerText = `"${picked}"`;
+                display.style.opacity = '1';
+            }, 150);
+        }
         }
 
         // --- The Hug Easter Egg ---
