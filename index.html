@@ -433,3 +433,977 @@
                     </div>
 
                     <!-- Center: Pulsing Heart Wax Seal -->
+                    <div class="relative mx-auto w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-roseDeep to-roseSoft flex items-center justify-center shadow-lg pulse-heart border-4 border-white shrink-0">
+                        <span class="text-3xl sm:text-4xl">💌</span>
+                    </div>
+
+                    <!-- Right: Fluffy Highland Cow sitting -->
+                    <div class="flex flex-col items-center" onclick="critterTap(this, event)">
+                        <svg class="w-20 h-20 sm:w-24 sm:h-24 critter-sticker" style="--base-rot: 4deg; animation-delay: -1.8s;" aria-label="Cute fluffy Highland cow">
+                            <use href="#icon-highland-cow"></use>
+                        </svg>
+                    </div>
+                </div>
+
+                <h1 class="font-hand text-4xl font-bold text-berry mt-1 mb-1">
+                    to flordyne &lt;3
+                </h1>
+                
+                <p class="text-sm font-semibold text-roseDeep/90 mb-5">
+                    from ethan "the GOAT" (don't even deny ts  i made u this)
+                </p>
+
+                <div class="bg-cream/90 border border-pink-100 rounded-2xl p-4 mb-5 shadow-inner">
+                    <p class="text-xs sm:text-sm text-warmText/85 leading-relaxed">
+                        Whenever your mind starts racing, spiraling or you just feel uncertain about us, take a slow breath and tap below to open your note, it is my ever-present love for u!
+                    </p>
+                </div>
+
+                <div class="inline-flex items-center gap-2 bg-roseDeep text-white font-bold text-sm px-6 py-3 rounded-full shadow-md group-hover:bg-berry transition-colors pointer-events-none">
+                    <span>Tap to open note</span>
+                    <span>🩷</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STATE 2: EXPANDED NOTE (ETHAN'S MESSAGE)   -->
+        <!-- ========================================== -->
+        <section id="expanded-letter-view" class="hidden space-y-5 pt-6">
+
+            <!-- Main Letter Card -->
+            <article class="letter-reveal bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 shadow-xl p-6 sm:p-7 relative">
+                <!-- Top Soft Accent Ribbon -->
+                <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-roseSoft via-roseDeep to-roseSoft rounded-t-3xl"></div>
+
+                <!-- Sleeping Snoopy-style Beagle snoozing right on top of the letter card edge -->
+                <div class="absolute -top-11 right-14 z-20" onclick="critterTap(this, event)" title="Tap me for hearts!">
+                    <svg class="w-24 h-12 critter-sticker" aria-label="Sleeping black and white dog on card edge">
+                        <use href="#icon-beagle-sleep"></use>
+                    </svg>
+                </div>
+
+                <!-- Header Bar inside Letter -->
+                <div class="flex items-center justify-between border-b border-pink-100 pb-3.5 mb-5">
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-hand text-3xl sm:text-4xl font-bold text-roseDeep leading-none">
+                            Hello flor &lt;3,
+                        </h1>
+                        <svg class="w-9 h-9 critter-sticker shrink-0" onclick="critterTap(this, event)" aria-label="Cute Highland cow">
+                            <use href="#icon-highland-cow"></use>
+                        </svg>
+                    </div>
+                    <button id="fold-note-btn" type="button" onclick="foldEnvelope(event)"
+                            class="text-xs font-bold text-roseDeep bg-blush/70 hover:bg-blush px-3 py-1.5 rounded-full transition shrink-0">
+                        Fold Envelope ✉️
+                    </button>
+                </div>
+
+                <!-- Ethan's Exact Words (Paragraphs 1-4) -->
+                <div class="selectable-text space-y-4 text-[15px] sm:text-base leading-relaxed text-warmText">
+                    <div class="relative bg-cream/80 border-l-4 border-roseSoft pl-3.5 pr-10 py-2.5 rounded-r-xl font-medium">
+                        <p>
+                            Im pinning this here so u have reassurance to look at whenever your mind starts racing and u r feeling anxious about our relationship.
+                        </p>
+                        <!-- Little Beagle peeking in the corner -->
+                        <svg class="w-9 h-9 critter-sticker absolute right-1.5 bottom-1" onclick="critterTap(this, event)" aria-label="Cute beagle doodle">
+                            <use href="#icon-beagle-mini"></use>
+                        </svg>
+                    </div>
+
+                    <p>
+                        I'm writing this because I love you more than anything, but I’m feeling incredibly drained by circling the same anxious topics abt our relationship, and I am afraid I can't be the support you need.
+                    </p>
+
+                    <p>
+                        Because of how I work, whenever I see you sad or anxious, I have an innate reaction to try to fix it and make u feel better which u also say it helps u. It does work but takes so much of my battery to repeat myself and affirm my love for u. While I understand on the recieving end it makes u calm but for me it stresses me as a task I can't ever miss and the pressure can make me snap which makes it worse and i feel so bad that I do that to u and when i finally snap out of it and realize what I did it makes me so shitty :(
+                    </p>
+
+                    <div class="relative bg-blush/50 rounded-2xl p-3.5 pt-5 border border-pink-100 font-semibold text-berry mt-5">
+                        <!-- Peeking Highland Cow over the calming callout box -->
+                        <div class="absolute -top-7 right-4" onclick="critterTap(this, event)">
+                            <svg class="w-14 h-10 critter-sticker" aria-label="Peeking Highland cow">
+                                <use href="#icon-cow-peek"></use>
+                            </svg>
+                        </div>
+                        <p>
+                            Right now, your nervous system is probably just overwhelmed and looking for safety. To protect us both, please refer to this message whenever u r feeling uncertain about our relationship :p
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- INTERACTIVE CONCRETE FACTS CARDS           -->
+                <!-- ========================================== -->
+                <div class="mt-6 pt-5 border-t border-pink-100">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-roseDeep flex items-center gap-1.5">
+                            <svg class="w-6 h-6 critter-sticker inline-block" onclick="critterTap(this, event)">
+                                <use href="#icon-beagle-heart"></use>
+                            </svg>
+                            <span>Concrete Facts For Us</span>
+                        </span>
+                        <span id="facts-counter" class="text-xs font-bold bg-blush text-berry px-2.5 py-1 rounded-full">
+                            Tap each to affirm (0/4)
+                        </span>
+                    </div>
+
+                    <div class="space-y-2.5" id="facts-list">
+                        <!-- Bullet 1 -->
+                        <div class="fact-card cursor-pointer rounded-2xl border border-pink-200/80 bg-cream/60 p-3.5 flex items-start gap-3"
+                             data-index="0" onclick="toggleFact(this, event)">
+                            <div class="fact-icon w-7 h-7 rounded-full bg-white border border-pink-200 flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm transition-transform pointer-events-none">
+                                🤍
+                            </div>
+                            <p class="selectable-text text-sm sm:text-[15px] font-bold text-warmText leading-snug pointer-events-none">
+                                i love u smmm and want u in my life and future.
+                            </p>
+                        </div>
+
+                        <!-- Bullet 2 -->
+                        <div class="fact-card cursor-pointer rounded-2xl border border-pink-200/80 bg-cream/60 p-3.5 flex items-start gap-3"
+                             data-index="1" onclick="toggleFact(this, event)">
+                            <div class="fact-icon w-7 h-7 rounded-full bg-white border border-pink-200 flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm transition-transform pointer-events-none">
+                                🤍
+                            </div>
+                            <p class="selectable-text text-sm sm:text-[15px] font-bold text-warmText leading-snug pointer-events-none">
+                                If something is wrong, I will let you know when im ready. Do not assume and spiral, most of the time its not you at all!!
+                            </p>
+                        </div>
+
+                        <!-- Bullet 3 -->
+                        <div class="fact-card cursor-pointer rounded-2xl border border-pink-200/80 bg-cream/60 p-3.5 flex items-start gap-3"
+                             data-index="2" onclick="toggleFact(this, event)">
+                            <div class="fact-icon w-7 h-7 rounded-full bg-white border border-pink-200 flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm transition-transform pointer-events-none">
+                                🤍
+                            </div>
+                            <p class="selectable-text text-sm sm:text-[15px] font-bold text-warmText leading-snug pointer-events-none">
+                                i will never abruptly break up with u. ever. we commoooonicate here.
+                            </p>
+                        </div>
+
+                        <!-- Bullet 4 -->
+                        <div class="fact-card cursor-pointer rounded-2xl border border-pink-200/80 bg-cream/60 p-3.5 flex items-start gap-3"
+                             data-index="3" onclick="toggleFact(this, event)">
+                            <div class="fact-icon w-7 h-7 rounded-full bg-white border border-pink-200 flex items-center justify-center shrink-0 mt-0.5 text-sm shadow-sm transition-transform pointer-events-none">
+                                🤍
+                            </div>
+                            <p class="selectable-text text-sm sm:text-[15px] font-bold text-warmText leading-snug pointer-events-none">
+                                We will figure this out. I promise.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Closing & Signature -->
+                <div class="selectable-text mt-6 pt-5 border-t border-pink-100 space-y-3">
+                    <p class="text-[15px] sm:text-base leading-relaxed text-warmText font-medium">
+                        Take deep breaths, think about happy memories and the future ones we will make. This note will not change and are concrete facts for us :)
+                    </p>
+                    <div class="pt-2 flex items-center justify-between gap-2">
+                        <p class="font-hand text-3xl sm:text-4xl font-bold text-roseDeep">
+                            I love u baby - ethan
+                        </p>
+                        <!-- Beagle & Highland Cow buddies together by Ethan's signature -->
+                        <div class="flex items-center gap-1 shrink-0">
+                            <svg class="w-12 h-12 critter-sticker" onclick="critterTap(this, event)" title="Tap me!">
+                                <use href="#icon-beagle-heart"></use>
+                            </svg>
+                            <span class="text-xl pulse-heart inline-block">💖</span>
+                            <svg class="w-12 h-12 critter-sticker" style="animation-delay: -1.5s;" onclick="critterTap(this, event)" title="Tap me!">
+                                <use href="#icon-highland-cow"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- INTERACTIVE WIDGETS (UNIFORM BOXES & UNIFORM TAP BUTTONS) -->
+            <!-- ========================================================= -->
+            <div class="grid grid-cols-1 gap-4">
+                
+                <!-- 1. Virtual Hug / 🫂 Variations + 6-Hug Spotify Easter Egg -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-beagle-heart"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                hugs 4 extra reassurance
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                reassurance hugs claimed: <span id="hug-count" class="font-extrabold text-roseDeep">0</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <button id="hug-btn" type="button" onclick="triggerHug(event)"
+                            class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                        <span>Tap for a Hug &lt;3</span>
+                        <span class="text-lg pointer-events-none">🫂</span>
+                    </button>
+
+                    <!-- Hidden Easter Egg Song Link Banner -->
+                    <a id="spotify-easter-egg"
+                       href="https://open.spotify.com/track/6QOwbaFzauGLVdITOrDwfi?si=UNDyZvsdQJev8_w_mZGIdg&utm_source=copy-link"
+                       target="_blank" rel="noopener noreferrer"
+                       class="hidden bg-blush/90 border border-roseSoft rounded-2xl p-3 text-center text-xs font-extrabold text-berry hover:bg-pink-200 transition shadow-sm">
+                        🎵 6 Hugs Unlocked! Tap here if your special song didn't open automatically 🫂💖
+                    </a>
+                </div>
+
+                <!-- 2. Calming "Take Deep Breaths" Nervous System Pacer -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-highland-cow"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                deep breaths, honey
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                "u making me calm"
+                            </p>
+                        </div>
+                    </div>
+
+                    <button id="toggle-breathe-btn" type="button" onclick="toggleBreathing(event)"
+                            class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                        <span>Breathe with me 🌬️</span>
+                    </button>
+
+                    <!-- Collapsible Breathing Circle -->
+                    <div id="breathing-drawer" class="hidden pt-4 border-t border-pink-100 flex flex-col items-center justify-center">
+                        <div class="relative flex items-center justify-center w-40 h-40 my-2">
+                            <div class="absolute inset-2 rounded-full border-2 border-dashed border-pink-200 pointer-events-none"></div>
+                            <div id="breath-circle" class="breath-circle w-24 h-24 rounded-full bg-blush flex items-center justify-center text-center shadow-sm">
+                                <span id="breath-label" class="text-xs font-extrabold text-berry px-2">
+                                    Ready...
+                                </span>
+                            </div>
+                        </div>
+                        <p id="breath-subtext" class="text-xs font-semibold text-roseDeep mt-2 mb-1">
+                            Follow the circle gently...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Rotating Texts ("Reminders of Us") -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                                <use href="#icon-beagle-mini"></use>
+                            </svg>
+                            <div>
+                                <h2 class="text-base font-extrabold text-berry">
+                                    texts &amp; reminders of us
+                                </h2>
+                                <p class="text-xs text-warmText/80 mt-0.5">
+                                    real texts from me whenever u need a smile
+                                </p>
+                            </div>
+                        </div>
+                        <span id="text-deck-counter" class="text-[11px] font-bold bg-blush text-berry px-2.5 py-1 rounded-full shrink-0">
+                            68 notes 💌
+                        </span>
+                    </div>
+
+                    <!-- Chat Bubble Display Box -->
+                    <div class="bg-cream/90 border border-pink-100 rounded-2xl p-4 min-h-[78px] flex items-center justify-center text-center shadow-inner">
+                        <p id="cute-text-display" class="selectable-text text-sm sm:text-[15px] font-bold text-berry italic transition-opacity duration-200">
+                            "Tap the button below to pull a random text from me &lt;3"
+                        </p>
+                    </div>
+
+                    <button id="next-text-btn" type="button" onclick="showRandomText(event)"
+                            class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                        <span>Tap for Another Text 💌</span>
+                    </button>
+                </div>
+
+                <!-- 4. The 10-Minute Anxiety Sorter & Brain Dump -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-cow-peek"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                10-minute anxiety sorter
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                unedited brain dump &amp; "poof away" gate
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Calming Explanation of the Timer & Sorter -->
+                    <div class="bg-cream/90 border border-pink-100 rounded-2xl p-3.5 text-xs text-warmText/90 leading-relaxed space-y-1.5">
+                        <p>
+                            <strong class="text-berry">How this protects your peace:</strong> When your head is racing, holding everything in working memory exhausts your nervous system. Start the <strong>10-minute processing window</strong> below and dump every raw, unedited thought out of your head.
+                        </p>
+                        <p>
+                            Then sort each worry into <strong>Can Control Right Now</strong> vs. <strong>Cannot Control Right Now</strong>. Everything you cannot control gets stamped with a <em>"Check Again Tomorrow"</em> lock—and when the 10-minute timer ends, those uncontrollable thoughts gently <strong>poof away</strong> so your brain knows the window is officially closed and you have permission to let them go.
+                        </p>
+                    </div>
+
+                    <!-- Timer Display Bar -->
+                    <div class="flex items-center justify-between bg-blush/50 border border-pink-100 rounded-2xl px-4 py-2.5">
+                        <div class="flex items-center gap-2">
+                            <span class="text-base">⏳</span>
+                            <span id="timer-status-label" class="text-xs font-bold text-berry">Processing Window:</span>
+                        </div>
+                        <span id="worry-timer-display" class="font-extrabold text-lg text-roseDeep tracking-wider">
+                            10:00
+                        </span>
+                    </div>
+
+                    <button id="start-timer-btn" type="button" onclick="toggleWorryTimer(event)"
+                            class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                        <span>Start 10-Min Processing Timer ⏱️</span>
+                    </button>
+
+                    <!-- Giant Unformatted Brain Dump Textarea -->
+                    <div id="brain-dump-input-wrapper" class="space-y-2.5 pt-1">
+                        <textarea id="dump-textarea" rows="4"
+                                  placeholder="Type every racing thought, worry, or task here... (Put each worry on a new line, or add them one by one)"
+                                  class="w-full rounded-2xl border-2 border-pink-200 bg-white p-3.5 text-sm text-warmText placeholder:text-warmText/45 focus:outline-none focus:border-roseDeep shadow-inner resize-y"></textarea>
+
+                        <button type="button" onclick="addBrainDumpThoughts(event)"
+                                class="uniform-tap-btn bg-blush hover:bg-pink-200 text-berry">
+                            <span>Dump Thought(s) Into Sorter 📥</span>
+                        </button>
+                    </div>
+
+                    <!-- Unsorted Thoughts Staging Area -->
+                    <div id="unsorted-container" class="hidden space-y-2 pt-2 border-t border-pink-100">
+                        <p class="text-xs font-extrabold uppercase tracking-wider text-roseDeep">
+                            Tap to Sort Each Thought:
+                        </p>
+                        <div id="unsorted-list" class="space-y-2"></div>
+                    </div>
+
+                    <!-- Two Distinct Sorting Columns -->
+                    <div id="sorted-columns-wrapper" class="hidden space-y-4 pt-3 border-t border-pink-100">
+                        <!-- Column 1: Can Control Right Now -->
+                        <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-3.5 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+                                    <span>🌱 Things I Can Control Right Now</span>
+                                </h3>
+                                <span id="control-count-badge" class="text-[11px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">0</span>
+                            </div>
+                            <div id="control-list" class="space-y-2 text-xs text-warmText"></div>
+                        </div>
+
+                        <!-- Column 2: Cannot Control Right Now (The Poof Away Gate) -->
+                        <div class="bg-rose-50/80 border border-pink-200 rounded-2xl p-3.5 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xs font-extrabold uppercase tracking-wider text-berry flex items-center gap-1.5">
+                                    <span>☁️ Things I Cannot Control Right Now</span>
+                                </h3>
+                                <span id="nocontrol-count-badge" class="text-[11px] font-bold bg-pink-100 text-berry px-2 py-0.5 rounded-full">0</span>
+                            </div>
+                            <p class="text-[11px] text-roseDeep/85 italic">
+                                Automatically time-locked until tomorrow. These will gently vanish when your timer finishes.
+                            </p>
+                            <div id="nocontrol-list" class="space-y-2 text-xs text-warmText"></div>
+
+                            <!-- Calming Vanish Completion Message -->
+                            <div id="poof-complete-banner" class="hidden bg-white/90 border border-pink-100 rounded-xl p-3.5 text-center space-y-1">
+                                <p class="text-sm font-extrabold text-roseDeep">
+                                    ✨ Released &amp; Poofed Away Until Tomorrow ✨
+                                </p>
+                                <p class="text-xs text-warmText/85 leading-relaxed">
+                                    Your processing window is officially closed. Those uncontrollable worries are safely locked away for tomorrow—you have permission to let them go and rest now 🤍
+                                </p>
+                            </div>
+
+                            <!-- Optional Manual Early Release Button -->
+                            <button id="early-poof-btn" type="button" onclick="triggerCalmingPoof()"
+                                    class="hidden w-full mt-2 py-2 px-3 rounded-xl bg-white border border-pink-200 text-xs font-bold text-roseDeep hover:bg-blush/50 transition">
+                                Done sorting early? Gently Poof Uncontrollable Worries Now ✨
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Block Blast Distraction Link -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-beagle-heart"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                need a brain break?
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                zone out and clear some blocks for a bit
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="game.html" class="block no-underline">
+                        <button type="button" class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                            <span>Need a distraction? Play Block Blast 🧩</span>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // --- 1. FLOATING HEARTS PARTICLE SYSTEM ---
+        const particleContainer = document.getElementById('particle-container');
+        const EMOJIS = ['❤️', '🩷', '✨', '🌷', '💖', '🌸', '🥰'];
+
+        function spawnHeartParticle(x, y, customEmoji = null) {
+            const el = document.createElement('div');
+            el.className = 'floating-particle select-none pointer-events-none';
+            el.textContent = customEmoji || EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+
+            const driftX = (Math.random() - 0.5) * 90;
+            const lift = 110 + Math.random() * 90;
+            const scale = 0.85 + Math.random() * 0.65;
+            const duration = 1.4 + Math.random() * 0.9;
+            const rotMid = (Math.random() - 0.5) * 25;
+            const rotEnd = (Math.random() - 0.5) * 40;
+            const fontSize = 18 + Math.floor(Math.random() * 12);
+
+            el.style.left = `${x}px`;
+            el.style.top = `${y}px`;
+            el.style.fontSize = `${fontSize}px`;
+            el.style.setProperty('--drift-x', `${driftX}px`);
+            el.style.setProperty('--lift', `${lift}px`);
+            el.style.setProperty('--scale', scale);
+            el.style.setProperty('--duration', `${duration}s`);
+            el.style.setProperty('--rot-mid', `${rotMid}deg`);
+            el.style.setProperty('--rot-end', `${rotEnd}deg`);
+
+            particleContainer.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, duration * 1000);
+        }
+
+        function spawnHeartBurst(centerX, centerY, count = 12, customEmoji = null) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const offsetX = (Math.random() - 0.5) * 120;
+                    const offsetY = (Math.random() - 0.5) * 60;
+                    spawnHeartParticle(centerX + offsetX, centerY + offsetY, customEmoji);
+                }, i * 35);
+            }
+        }
+
+        window.critterTap = function(el, event) {
+            if (event) event.stopPropagation();
+            const target = el.classList.contains('critter-sticker') ? el : el.querySelector('.critter-sticker') || el;
+            target.classList.remove('critter-wiggle');
+            void target.offsetWidth;
+            target.classList.add('critter-wiggle');
+            setTimeout(() => target.classList.remove('critter-wiggle'), 600);
+
+            const rect = target.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const cuteBurstEmojis = ['🩷', '🐾', '🐮', '🐶', '💖', '✨', '🌷'];
+            for (let i = 0; i < 9; i++) {
+                setTimeout(() => {
+                    const ox = (Math.random() - 0.5) * 90;
+                    const oy = (Math.random() - 0.5) * 50;
+                    const emoji = cuteBurstEmojis[Math.floor(Math.random() * cuteBurstEmojis.length)];
+                    spawnHeartParticle(cx + ox, cy + oy, emoji);
+                }, i * 35);
+            }
+        };
+
+        // FIXED: Safari DOM mutation cancellation bug. Replaced pointerdown with click.
+        document.addEventListener('click', (e) => {
+            // Ignore clicks on buttons/inputs to prevent double-spawning or breaking native clicks
+            if (e.target.closest('button, a, input, textarea, .critter-sticker, .envelope-card, .fact-card')) return;
+            spawnHeartParticle(e.clientX, e.clientY);
+        });
+
+        // --- 2. ENVELOPE OPEN / FOLD LOGIC ---
+        window.openEnvelope = function(e) {
+            if (e) e.stopPropagation();
+            const btn = document.getElementById('open-envelope-btn');
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            spawnHeartBurst(centerX, centerY, 18);
+
+            document.getElementById('closed-envelope-view').classList.add('hidden');
+            document.getElementById('expanded-letter-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.foldEnvelope = function(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('expanded-letter-view').classList.add('hidden');
+            document.getElementById('closed-envelope-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 3. INTERACTIVE "CONCRETE FACTS" AFFIRMATION CARDS ---
+        const factsCounter = document.getElementById('facts-counter');
+        let affirmedSet = new Set();
+
+        window.toggleFact = function(cardEl, event) {
+            const index = cardEl.getAttribute('data-index');
+            const iconEl = cardEl.querySelector('.fact-icon');
+            const rect = cardEl.getBoundingClientRect();
+            const clickX = event && event.clientX ? event.clientX : (rect.left + rect.width / 2);
+            const clickY = event && event.clientY ? event.clientY : (rect.top + rect.height / 2);
+
+            if (affirmedSet.has(index)) {
+                affirmedSet.delete(index);
+                cardEl.classList.remove('affirmed');
+                iconEl.textContent = '🤍';
+                iconEl.classList.remove('scale-110', 'bg-pink-100');
+            } else {
+                affirmedSet.add(index);
+                cardEl.classList.add('affirmed');
+                iconEl.textContent = '🩷';
+                iconEl.classList.add('scale-110', 'bg-pink-100');
+                spawnHeartBurst(clickX, clickY, 8);
+            }
+
+            const count = affirmedSet.size;
+            if (count === 4) {
+                factsCounter.textContent = 'All 4 Facts Affirmed 💖';
+                factsCounter.className = 'text-xs font-extrabold bg-roseDeep text-white px-3 py-1 rounded-full shadow-sm';
+                spawnHeartBurst(window.innerWidth / 2, window.innerHeight / 2, 22);
+            } else {
+                factsCounter.textContent = `Tap each to affirm (${count}/4)`;
+                factsCounter.className = 'text-xs font-bold bg-blush text-berry px-2.5 py-1 rounded-full';
+            }
+        };
+
+        // --- 4. VIRTUAL HUG (🫂 VARIATIONS + 6-HUG SPOTIFY EASTER EGG) ---
+        let hugCount = 0;
+        const SPOTIFY_URL = 'https://open.spotify.com/track/6QOwbaFzauGLVdITOrDwfi?si=UNDyZvsdQJev8_w_mZGIdg&utm_source=copy-link';
+
+        function spawnHugVariation(variationIndex, isSuperEasterEgg = false) {
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+
+            if (variationIndex === 0 || isSuperEasterEgg) {
+                const mega = document.createElement('div');
+                mega.className = 'hug-mega-center select-none';
+                mega.style.fontSize = isSuperEasterEgg ? '190px' : '150px';
+                mega.textContent = '🫂';
+                particleContainer.appendChild(mega);
+                setTimeout(() => mega.remove(), 2100);
+
+                const ringCount = isSuperEasterEgg ? 22 : 12;
+                for (let i = 0; i < ringCount; i++) {
+                    const el = document.createElement('div');
+                    el.className = 'hug-swirl-particle select-none';
+                    el.textContent = '🫂';
+                    const angle = (i / ringCount) * Math.PI * 2;
+                    const dist = (isSuperEasterEgg ? 0.45 : 0.35) * Math.min(vw, vh);
+                    el.style.left = `${vw / 2}px`;
+                    el.style.top = `${vh / 2}px`;
+                    el.style.fontSize = `${28 + Math.floor(Math.random() * 34)}px`;
+                    el.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+                    el.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+                    el.style.setProperty('--rot', `${(i % 2 === 0 ? 1 : -1) * 720}deg`);
+                    el.style.setProperty('--end-scale', isSuperEasterEgg ? '2.8' : '2.1');
+                    el.style.setProperty('--duration', '2.1s');
+                    particleContainer.appendChild(el);
+                    setTimeout(() => el.remove(), 2100);
+                }
+            }
+            else if (variationIndex === 1) {
+                for (let i = 0; i < 16; i++) {
+                    setTimeout(() => {
+                        const el = document.createElement('div');
+                        el.className = 'hug-swirl-particle select-none';
+                        el.textContent = '🫂';
+                        el.style.left = `${vw * 0.5}px`;
+                        el.style.top = `${vh * 0.55}px`;
+                        el.style.fontSize = `${32 + (i * 3)}px`;
+                        const tx = (Math.random() - 0.5) * vw * 0.95;
+                        const ty = (Math.random() - 0.65) * vh * 0.85;
+                        el.style.setProperty('--tx', `${tx}px`);
+                        el.style.setProperty('--ty', `${ty}px`);
+                        el.style.setProperty('--rot', `${(Math.random() > 0.5 ? 1 : -1) * (540 + Math.random() * 540)}deg`);
+                        el.style.setProperty('--end-scale', `${1.8 + Math.random() * 1.6}`);
+                        el.style.setProperty('--duration', '2.2s');
+                        particleContainer.appendChild(el);
+                        setTimeout(() => el.remove(), 2200);
+                    }, i * 40);
+                }
+            }
+            else if (variationIndex === 2) {
+                for (let i = 0; i < 18; i++) {
+                    setTimeout(() => {
+                        const el = document.createElement('div');
+                        el.className = 'hug-swirl-particle select-none';
+                        el.textContent = '🫂';
+                        const startX = vw * (0.08 + Math.random() * 0.84);
+                        el.style.left = `${startX}px`;
+                        el.style.top = `${vh * 0.88}px`;
+                        el.style.fontSize = `${26 + Math.floor(Math.random() * 64)}px`;
+                        el.style.setProperty('--tx', `${(Math.random() - 0.5) * 140}px`);
+                        el.style.setProperty('--ty', `-${vh * (0.55 + Math.random() * 0.35)}px`);
+                        el.style.setProperty('--rot', `${(Math.random() - 0.5) * 360}deg`);
+                        el.style.setProperty('--end-scale', `${1.4 + Math.random() * 1.5}`);
+                        el.style.setProperty('--duration', '2.3s');
+                        particleContainer.appendChild(el);
+                        setTimeout(() => el.remove(), 2300);
+                    }, i * 45);
+                }
+            }
+            else {
+                for (let i = 0; i < 14; i++) {
+                    const fromLeft = i % 2 === 0;
+                    const el = document.createElement('div');
+                    el.className = 'hug-swirl-particle select-none';
+                    el.textContent = '🫂';
+                    el.style.left = fromLeft ? `${vw * 0.1}px` : `${vw * 0.9}px`;
+                    el.style.top = `${vh * (0.25 + Math.random() * 0.55)}px`;
+                    el.style.fontSize = `${36 + Math.floor(Math.random() * 45)}px`;
+                    el.style.setProperty('--tx', fromLeft ? `${vw * 0.42}px` : `-${vw * 0.42}px`);
+                    el.style.setProperty('--ty', `-${60 + Math.random() * 140}px`);
+                    el.style.setProperty('--rot', fromLeft ? '360deg' : '-360deg');
+                    el.style.setProperty('--end-scale', '2.2');
+                    el.style.setProperty('--duration', '1.9s');
+                    particleContainer.appendChild(el);
+                    setTimeout(() => el.remove(), 1950);
+                }
+            }
+        }
+
+        window.triggerHug = function(e) {
+            if (e) e.stopPropagation();
+            hugCount++;
+            document.getElementById('hug-count').textContent = hugCount;
+
+            if (hugCount === 6) {
+                spawnHugVariation(0, true);
+                document.getElementById('spotify-easter-egg').classList.remove('hidden');
+                setTimeout(() => {
+                    const win = window.open(SPOTIFY_URL, '_blank');
+                    if (!win) window.location.href = SPOTIFY_URL;
+                }, 1200);
+            } else {
+                const variation = (hugCount - 1) % 4;
+                spawnHugVariation(variation, false);
+            }
+        };
+
+        // --- 5. CALMING BREATHING GUIDE ---
+        let isBreathing = false;
+        let breathTimeout = null;
+
+        function runBreathCycle() {
+            if (!isBreathing) return;
+            const breathCircle = document.getElementById('breath-circle');
+            const breathLabel = document.getElementById('breath-label');
+            const breathSubtext = document.getElementById('breath-subtext');
+
+            breathCircle.className = 'breath-circle w-24 h-24 rounded-full flex items-center justify-center text-center shadow-sm breath-inhale';
+            breathLabel.textContent = 'Inhale...';
+            breathSubtext.textContent = 'Breathe in slowly through your nose (4s)';
+
+            breathTimeout = setTimeout(() => {
+                if (!isBreathing) return;
+                breathCircle.className = 'breath-circle w-24 h-24 rounded-full flex items-center justify-center text-center shadow-sm breath-hold';
+                breathLabel.textContent = 'Hold...';
+                breathSubtext.textContent = 'Hold gently, you are safe (2.5s)';
+
+                breathTimeout = setTimeout(() => {
+                    if (!isBreathing) return;
+                    breathCircle.className = 'breath-circle w-24 h-24 rounded-full flex items-center justify-center text-center shadow-sm breath-exhale';
+                    breathLabel.textContent = 'Exhale...';
+                    breathSubtext.textContent = 'Let the racing thoughts melt away (4.5s)';
+
+                    breathTimeout = setTimeout(() => {
+                        if (isBreathing) runBreathCycle();
+                    }, 4500);
+                }, 2500);
+            }, 4000);
+        }
+
+        window.toggleBreathing = function(e) {
+            if (e) e.stopPropagation();
+            isBreathing = !isBreathing;
+            const toggleBtn = document.getElementById('toggle-breathe-btn');
+            const breathingDrawer = document.getElementById('breathing-drawer');
+            const breathCircle = document.getElementById('breath-circle');
+            const breathLabel = document.getElementById('breath-label');
+
+            if (isBreathing) {
+                breathingDrawer.classList.remove('hidden');
+                toggleBtn.querySelector('span').textContent = 'wdym breathe breathe, dont tell me to breathe';
+                runBreathCycle();
+            } else {
+                breathingDrawer.classList.add('hidden');
+                toggleBtn.querySelector('span').textContent = 'Breathe with me 🌬️';
+                clearTimeout(breathTimeout);
+                breathCircle.className = 'breath-circle w-24 h-24 rounded-full bg-blush flex items-center justify-center text-center shadow-sm';
+                breathLabel.textContent = 'Ready...';
+            }
+        };
+
+        // --- 6. 68 CURATED ROTATING TEXTS FOR FLOR ---
+        const rawCuteTexts = `
+i love u im excited to see u tmr 😸
+i love u too and i hope we can keep working w each other
+i love u to flor i love the future we’re building
+but i love u for u
+i love you i’m so excited to do halloween w u
+i love u good luck at ur game i hope it’s fun
+i just thought/realized i love u more than ever before if that’s even possible
+i put these efforts in bc i want to and i love u
+i’m sooo sorry for finding u attractive
+u da only snack i need
+sure cuz something something u make me smile something something
+look who’s the sleeping beauty now
+u make everything better fr fr
+wdym u got second hand embarrassment they were cute
+u take my breath away fr
+u so pretty fr
+ur funny and kind
+ur m strong
+ur alr bad asf bbg
+it will cuz ur so great
+you’re very eloquent with your words recently you make me feel at ease
+don’t be embarrassed u da goat
+there’s nothing wrong w u ur beautiful just the way u r n u shouldn’t feel ashamed about anything
+ur hot
+genuinely i look at ur ig daily
+u da honey bun
+u da baddest
+u da one
+your perseverance is endearing i wish i was as strong and brave as u r
+why don’t we have a weekly hour where we just glaze u
+it’s funny tho cuz the most likes i usually get is when i post u
+i’m sleeping now cutie
+it sucks flor i know and i will be happy to be there for you whenever you need it
+ik how hard ur trying
+u did nothing wrong flor you’ve been trying your best
+and i’ll support u no matter what
+i’m proud of u that ur putting urself out there and trying new things i struggle w that
+i’m glad ur sharing never stop sharing what’s going on and what makes u happy
+a good state of mind and healthy is all i want for u
+i’ve seen so much growth from u as a person
+while it is a shitty situation that u don’t deserve to be in i just wanted u to know you’re doing such a great job and i see how hard u try and care for everyone
+so i want to be there for u and now i see ur making growth and progress im confident u r on the right path
+but you are doing an amazing job baby
+i promise you’re making strides if u zoom out
+and while i know ur still anxious i noticed ur demeanour navigating it is so much better
+ik ur super stressed rn but pls take it easy on urself. all the stuff ur getting done and work u r doing is a lot but it’s good that ur organized and getting it done
+but i’m proud of u taking initiative
+good luck baby ik everything will work out how it should
+i hope it’s going well baby ik how much u care abt this :)
+it’s ok i’m happy to be here
+thank u for being so understanding baby
+i’m drunk n sleepy n can’t text good but i read that n it made me happy
+thank u for saying that it’s reassuring
+thank you so much flor this means a lot to me, i always feel reassured and calm after hearing u digest information and reply to me
+thank u goat 🙏
+i’m sleeping now so i’ll sleep more tmr but thank you baby for your support and kindness as always
+okok sounds good i’m good w whatever i just wanna spend time w u
+i’m ok w anything i’m just exited to see y
+i’ll see u soonnn
+i miss u too
+can i pls see u
+i just wanna nap w u
+my eyes r a bit tired not as bad as last week but more so my brain is tired i just want to cuddle u
+it’s ok we’ll be here for each other
+have fun at your concert tell me about it after :))
+happy thanksgiving :0 thankful for our time as well
+i’m home love
+it’ll work cuz we’re goated
+i’m just feeling very thankful for us tn
+`;
+
+        const cuteTexts = rawCuteTexts.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+        let textDeck = [];
+        let seenCount = 0;
+
+        window.showRandomText = function(e) {
+            if (e) {
+                e.stopPropagation();
+                spawnHeartBurst(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2, 6, '💌');
+            }
+            if (textDeck.length === 0) {
+                textDeck = [...cuteTexts].sort(() => Math.random() - 0.5);
+                seenCount = 0;
+            }
+            const picked = textDeck.pop();
+            seenCount++;
+
+            const display = document.getElementById('cute-text-display');
+            const counter = document.getElementById('text-deck-counter');
+            display.style.opacity = '0';
+
+            setTimeout(() => {
+                display.textContent = `"${picked}"`;
+                display.style.opacity = '1';
+                counter.textContent = `${seenCount}/${cuteTexts.length} 💌`;
+            }, 160);
+        };
+
+        // --- 7. 10-MINUTE ANXIETY SORTER & "POOF AWAY" DISAPPEARING GATE ---
+        let worryTimerInterval = null;
+        let worryTimeLeft = 600; // 10 mins
+        let timerRunning = false;
+
+        function getTomorrowStamp() {
+            const tmr = new Date();
+            tmr.setDate(tmr.getDate() + 1);
+            return tmr.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        }
+
+        function updateSortCounts() {
+            document.getElementById('control-count-badge').textContent = document.getElementById('control-list').children.length;
+            const noCtrlCount = document.querySelectorAll('#nocontrol-list .nocontrol-worry-card').length;
+            document.getElementById('nocontrol-count-badge').textContent = noCtrlCount;
+            const earlyPoofBtn = document.getElementById('early-poof-btn');
+            noCtrlCount > 0 ? earlyPoofBtn.classList.remove('hidden') : earlyPoofBtn.classList.add('hidden');
+        }
+
+        window.toggleWorryTimer = function(e) {
+            if (e) e.stopPropagation();
+            const btn = document.getElementById('start-timer-btn');
+            const statusLabel = document.getElementById('timer-status-label');
+
+            if (timerRunning) return;
+            timerRunning = true;
+            btn.querySelector('span').textContent = '10-Min Processing Window Active 🌿';
+            btn.classList.replace('from-roseDeep', 'from-berry');
+            statusLabel.textContent = 'Time Remaining:';
+            document.getElementById('dump-textarea').focus();
+
+            worryTimerInterval = setInterval(() => {
+                worryTimeLeft--;
+                const m = Math.floor(worryTimeLeft / 60);
+                const s = worryTimeLeft % 60;
+                document.getElementById('worry-timer-display').textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+
+                if (worryTimeLeft <= 0) {
+                    clearInterval(worryTimerInterval);
+                    triggerCalmingPoof(true);
+                }
+            }, 1000);
+        };
+
+        window.addBrainDumpThoughts = function(e) {
+            if (e) e.stopPropagation();
+            const textarea = document.getElementById('dump-textarea');
+            const raw = textarea.value.trim();
+            if (!raw) return;
+
+            if (!timerRunning && worryTimeLeft === 600) toggleWorryTimer();
+
+            const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            document.getElementById('unsorted-container').classList.remove('hidden');
+            document.getElementById('sorted-columns-wrapper').classList.remove('hidden');
+
+            lines.forEach(lineText => {
+                const card = document.createElement('div');
+                card.className = 'bg-cream border border-pink-200 rounded-2xl p-3 shadow-sm space-y-2.5';
+                
+                const p = document.createElement('p');
+                p.className = 'selectable-text text-xs sm:text-sm font-bold text-warmText break-words';
+                p.textContent = lineText;
+
+                const btnRow = document.createElement('div');
+                btnRow.className = 'grid grid-cols-2 gap-2';
+
+                const canBtn = document.createElement('button');
+                canBtn.type = 'button';
+                canBtn.className = 'py-2 px-2.5 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-extrabold text-[11px] transition';
+                canBtn.textContent = '🌱 Can Control Now';
+                canBtn.onclick = () => moveThoughtToColumn(card, lineText, 'control');
+
+                const cannotBtn = document.createElement('button');
+                cannotBtn.type = 'button';
+                cannotBtn.className = 'py-2 px-2.5 rounded-xl bg-pink-100 hover:bg-pink-200 text-berry font-extrabold text-[11px] transition';
+                cannotBtn.textContent = '☁️ Cannot Control Now';
+                cannotBtn.onclick = () => moveThoughtToColumn(card, lineText, 'nocontrol');
+
+                btnRow.appendChild(canBtn);
+                btnRow.appendChild(cannotBtn);
+                card.appendChild(p);
+                card.appendChild(btnRow);
+                document.getElementById('unsorted-list').appendChild(card);
+            });
+
+            textarea.value = '';
+            if (e) spawnHeartBurst(e.clientX || window.innerWidth/2, e.clientY || window.innerHeight/2, 5, '✨');
+        };
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function moveThoughtToColumn(originalCard, text, category) {
+            originalCard.remove();
+            if (document.getElementById('unsorted-list').children.length === 0) {
+                document.getElementById('unsorted-container').classList.add('hidden');
+            }
+
+            const sortedItem = document.createElement('div');
+            if (category === 'control') {
+                sortedItem.className = 'bg-white border border-emerald-200 rounded-xl p-2.5 flex items-center justify-between gap-2 shadow-sm';
+                sortedItem.innerHTML = `<span class="selectable-text font-semibold text-warmText break-words">${escapeHtml(text)}</span><span class="shrink-0 text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Actionable 🌱</span>`;
+                document.getElementById('control-list').appendChild(sortedItem);
+            } else {
+                sortedItem.className = 'nocontrol-worry-card bg-white border border-pink-200 rounded-xl p-2.5 space-y-1.5 shadow-sm';
+                sortedItem.innerHTML = `<div class="flex items-start justify-between gap-2"><span class="selectable-text font-semibold text-warmText break-words">${escapeHtml(text)}</span></div><div class="inline-flex items-center gap-1 text-[10px] font-extrabold bg-blush text-berry px-2 py-0.5 rounded-full"><span>🔒 Check Again Tomorrow (${getTomorrowStamp()})</span></div>`;
+                document.getElementById('nocontrol-list').appendChild(sortedItem);
+                document.getElementById('poof-complete-banner').classList.add('hidden');
+            }
+            updateSortCounts();
+        }
+
+        window.triggerCalmingPoof = function(fromTimerEnd = false) {
+            if (fromTimerEnd) {
+                document.getElementById('worry-timer-display').textContent = 'Window Closed 🤍';
+                document.getElementById('start-timer-btn').querySelector('span').textContent = 'Processing Window Complete ✨';
+            }
+
+            const uncontrollableItems = document.querySelectorAll('#nocontrol-list .nocontrol-worry-card');
+            document.getElementById('early-poof-btn').classList.add('hidden');
+
+            const rect = document.getElementById('nocontrol-list').getBoundingClientRect();
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const calmEmojis = ['☁️', '✨', '🤍', '🕊️', '🌸'];
+            for (let i = 0; i < 14; i++) {
+                setTimeout(() => {
+                    spawnHeartParticle(cx + (Math.random() - 0.5) * 180, cy + (Math.random() - 0.5) * 80, calmEmojis[i % calmEmojis.length]);
+                }, i * 80);
+            }
+
+            uncontrollableItems.forEach((item, idx) => {
+                setTimeout(() => item.classList.add('calm-poof-item'), idx * 120);
+            });
+
+            setTimeout(() => {
+                uncontrollableItems.forEach(item => item.remove());
+                document.getElementById('poof-complete-banner').classList.remove('hidden');
+                updateSortCounts();
+            }, 2600);
+        };
+    </script>
+</body>
+</html>
