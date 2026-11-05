@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For Flor &lt;3 — From Ethan</title>
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <!-- Google Fonts: Nunito & Caveat for warm, cozy, handwritten-note feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -831,11 +831,27 @@
                     </div>
                 </div>
 
-                <!-- 5. Surprise Coming Soon Section -->
-                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md text-center">
-                    <p class="text-sm font-extrabold text-berry">
-                        surprise coming soon
-                    </p>
+                <!-- 5. Block Blast Extension Card ("your favourite ;p") -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-beagle-heart"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                your favourite ;p
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                well now i won't have to ask what ur fav feature is lol...
+                            </p>
+                        </div>
+                    </div>
+
+                    <button id="launch-blockblast-btn" type="button" onclick="launchBlockBlast(event)"
+                            class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
+                        <span>block blast: flor edition</span>
+                        <span class="text-lg pointer-events-none">🌷</span>
+                    </button>
                 </div>
 
             </div>
@@ -936,6 +952,24 @@
             document.getElementById('closed-envelope-view').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Auto-open envelope if returning from game.html#note
+        if (window.location.hash === '#note') {
+            document.getElementById('closed-envelope-view').classList.add('hidden');
+            document.getElementById('expanded-letter-view').classList.remove('hidden');
+        }
+
+        // --- 2B. LAUNCH BLOCK BLAST (game.html) ---
+        window.launchBlockBlast = function(e) {
+            if (e) {
+                e.stopPropagation();
+                spawnHeartBurst(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 10, '🌷');
+            }
+            const targetFile = ['game', 'html'].join('.');
+            setTimeout(() => {
+                window.location.assign(targetFile);
+            }, 180);
+        };
 
         // --- 3. INTERACTIVE "CONCRETE FACTS" AFFIRMATION CARDS ---
         const factsCounter = document.getElementById('facts-counter');
