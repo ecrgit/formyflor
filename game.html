@@ -7,21 +7,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
-        hand: ['Caveat', 'cursive']
+if (window.tailwind) {
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Nunito', 'sans-serif'],
+          hand: ['Caveat', 'cursive']
+        }
       }
     }
-  }
-};
+  };
+}
 </script>
 <style>
-  /* 1. EASY: Matches original Flor handoff palette */
   :root {
     --bg-main: radial-gradient(circle at top, #FFF0F3 0%, #FFF9F6 55%, #FDE8EE 100%);
     --frame-bg: #FFEAEF;
@@ -37,14 +38,6 @@ tailwind.config = {
     --subtext: #4A353B;
   }
 
-  /* 2. MEDIUM Hierarchy:
-     1. Muted Sky Blue: #93b2bd (Largest visual space: Page Background & Active Toggle)
-     2. Coral Pink: #f5c2b3 (2nd largest: Card Frame & Board/Dock Container)
-     3. Creamy Vanilla: #EBE0CF (3rd largest: Empty 8x8 Grid Cells & Pill Toggles)
-     4. Deep Espresso Black: #181818 (4th: Headings, Text & Contrast Borders)
-     5. Warm Tan: #B97C63 (5th: Score Highlight & Frame Borders)
-     6. Steel Gray: #7B8185 (6th: Subtext & Muted Accents)
-  */
   body[data-mode="medium"] {
     --bg-main: #93b2bd;
     --frame-bg: #f5c2b3;
@@ -60,14 +53,6 @@ tailwind.config = {
     --subtext: #7B8185;
   }
 
-  /* 3. HARD Hierarchy:
-     1. Grass Green: #4F7335 (Largest visual space: Page Background & Active Toggle)
-     2. Retro Beige: #C9B8A0 (2nd largest: Card Frame & Board/Dock Container)
-     3. Monitor Charcoal: #2B2D2C (3rd largest: Empty 8x8 Grid Cells & Pill Toggles)
-     4. Dark Forest Green: #1B3222 (4th: Borders & Headings)
-     5. Warm Caramel: #BB7248 (5th: Score Highlight & Secondary Accents)
-     6. Soft Off-White: #EFEBE4 (6th: Pill/Toggle Text & Contrast Labels)
-  */
   body[data-mode="hard"] {
     --bg-main: #4F7335;
     --frame-bg: #C9B8A0;
@@ -83,14 +68,6 @@ tailwind.config = {
     --subtext: #1B3222;
   }
 
-  /* 4. IMPOSSIBLE Hierarchy:
-     1. Mid-Tone Ash Gray: #808080 (Largest visual space: Page Background)
-     2. Soft Off-White: #F0F0F0 (2nd largest: Card Frame & Board/Dock Container)
-     3. Dusty Mauve Pink: #C68B9D (3rd largest: Empty 8x8 Grid Cells & Active Toggle)
-     4. Bright Silver: #D6D8D9 (4th: Unselected Pill Toggles)
-     5. Deep Charcoal Black: #121212 (5th: Primary Text, Headings & Borders)
-     6. Dark Slate Gray: #3E3E3E (6th: Subtext & Secondary Borders)
-  */
   body[data-mode="impossible"] {
     --bg-main: #808080;
     --frame-bg: #F0F0F0;
@@ -114,11 +91,13 @@ tailwind.config = {
     text-transform: lowercase;
   }
 
-  /* Force ITS BLOCKIN TIME to be ALL CAPS */
   #memoryTicker {
     text-transform: uppercase !important;
     letter-spacing: 0.04em;
   }
+
+  .hidden { display: none !important; }
+  .font-hand { font-family: 'Caveat', cursive; }
 
   html, body {
     margin: 0;
@@ -138,6 +117,15 @@ tailwind.config = {
     overscroll-behavior: none;
   }
 
+  #bb {
+    display: block;
+    width: 100%;
+    max-width: 368px;
+    aspect-ratio: 360 / 468;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
   .photobooth-frame {
     background: var(--frame-bg);
     border: 2.5px solid var(--board-border);
@@ -150,6 +138,7 @@ tailwind.config = {
     color: var(--pill-text);
     border: 1.5px solid var(--board-border);
     transition: all 0.2s ease;
+    cursor: pointer;
   }
 
   .themed-pill-active {
@@ -158,19 +147,12 @@ tailwind.config = {
     border: 2px solid var(--heading);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
     transition: all 0.2s ease;
+    cursor: pointer;
   }
 
-  .themed-score-text {
-    color: var(--score-col);
-  }
-
-  .themed-heading {
-    color: var(--heading);
-  }
-
-  .themed-subtext {
-    color: var(--subtext);
-  }
+  .themed-score-text { color: var(--score-col); }
+  .themed-heading { color: var(--heading); }
+  .themed-subtext { color: var(--subtext); }
 
   @keyframes critterCheer {
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
@@ -179,7 +161,6 @@ tailwind.config = {
   }
   .critter-wiggle { animation: critterCheer 0.6s ease; }
 
-  /* 2x Larger & 2x Longer (3.7s) Floating Combo Toast - Strictly Fitted for Mobile */
   @keyframes toastPopLong {
     0% { opacity: 0; transform: translate(-50%, 14px) scale(0.85); }
     8% { opacity: 1; transform: translate(-50%, 0px) scale(1.02); }
@@ -218,7 +199,6 @@ tailwind.config = {
 </head>
 <body class="flex flex-col items-center justify-start min-h-[100dvh] px-3 py-2">
 
-<!-- SVG Critter Sprites: Snoopy-style B&W Dog (#icon-beagle-heart) + Highland Cow (#icon-highland-cow) -->
 <svg class="hidden" aria-hidden="true">
   <symbol id="icon-beagle-heart" viewBox="0 0 64 64">
     <path d="M24 44 L22 56 L40 56 L38 44 Z" fill="#FFFFFF" stroke="#181818" stroke-width="2.4" stroke-linejoin="round"/>
@@ -244,8 +224,6 @@ tailwind.config = {
 </svg>
 
 <main class="w-full max-w-md mx-auto flex flex-col gap-1.5 select-none">
-
-  <!-- 1. Top Navigation & Controls -->
   <nav class="flex items-center justify-between gap-1.5 px-1">
     <button id="backToIndexBtn" type="button"
       class="themed-pill inline-flex items-center gap-1 px-3 py-1.5 rounded-full font-bold text-xs shadow-sm active:scale-95">
@@ -263,10 +241,7 @@ tailwind.config = {
     </div>
   </nav>
 
-  <!-- Main Photobooth Card -->
   <section class="photobooth-frame rounded-3xl p-2.5 flex flex-col gap-2 relative">
-
-    <!-- Difficulty & Theme Mode Selector -->
     <div class="flex flex-col gap-1 border-b border-black/15 pb-1.5 px-1">
       <div class="flex items-center justify-between gap-1.5" role="group" aria-label="difficulty modes">
         <button type="button" data-mode="easy" class="mode-btn themed-pill-active flex-1 py-1 rounded-full text-[11px] font-extrabold">
@@ -289,7 +264,6 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 3. Scoreboard, Full-Space Page Title & Snoopy + Highland Cow Buddies -->
     <div class="flex items-center justify-between gap-1.5 px-1">
       <div id="critterLeft" class="themed-pill flex items-center gap-1.5 rounded-2xl px-2 py-1 shadow-sm shrink-0">
         <svg class="w-8 h-8 shrink-0"><use href="#icon-beagle-heart"></use></svg>
@@ -316,15 +290,12 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 4 & 5. Floating Compliment Toasts Container (Fits 100% on Mobile Screen) -->
     <div id="toastContainer" class="relative w-full h-0 z-40 pointer-events-none"></div>
 
-    <!-- Canvas Board + 3-Piece Dock -->
     <div id="gameStage" class="relative w-full flex flex-col items-center lock-touch">
-      <canvas id="bb" class="w-full max-w-[368px] rounded-2xl lock-touch block mx-auto"></canvas>
+      <canvas id="bb" width="360" height="468" class="lock-touch"></canvas>
     </div>
 
-    <!-- 6 & 7. Bottom Text ("ITS BLOCKIN TIME" in ALL CAPS) & Quick Controls -->
     <div class="flex items-center justify-between gap-2 pt-1 border-t border-black/15 px-1 text-xs">
       <div id="memoryTicker" class="font-black themed-heading truncate">
         ITS BLOCKIN TIME
@@ -341,7 +312,6 @@ tailwind.config = {
       </div>
     </div>
 
-    <!-- 8. Gentle "Game Over" & Rescue Modal -->
     <div id="gameOverModal" class="hidden absolute inset-0 z-50 rounded-3xl bg-black/55 backdrop-blur-sm flex items-center justify-center p-4">
       <div class="photobooth-frame w-full max-w-xs rounded-3xl p-5 text-center shadow-2xl flex flex-col items-center gap-3">
         <div class="flex items-center justify-center gap-2">
@@ -366,7 +336,6 @@ tailwind.config = {
         </div>
       </div>
     </div>
-
   </section>
 </main>
 
@@ -374,7 +343,6 @@ tailwind.config = {
 (() => {
   const N = 8, C = 40, BX = 20, BY = 14, W = 360, H = 468, TY = 350;
 
-  // Categorized Polyomino Shapes for Difficulty Scaling
   const EASY_SHAPES = [
     [[1]], [[1,1]], [[1,1,1]], [[1],[1]], [[1],[1],[1]],
     [[1,1],[1,1]],
@@ -394,16 +362,15 @@ tailwind.config = {
   ];
   const ALL_SHAPES = [...EASY_SHAPES, ...MED_SHAPES, ...HARD_SHAPES];
 
-  // 10 Custom Block Icon Types
   const ICONS = [
     'kiss', 'guitar', 'butterfly', 'tulip', 'lily',
     'octopus', 'sushi', 'teddy', 'digicam', 'monkey'
   ];
 
-  // Mode Configurations matching exact updated 1-6 Color Hierarchies
   const MODES = {
     easy: {
       rescues: Infinity,
+      boardBg: '#FFEAEF', boardBorder: '#F4A2B8', cellEmpty: '#FFF9F6',
       colors: [
         { top: '#FF9EBB', bot: '#FF85A1', border: '#E05780', dark: false },
         { top: '#FFBD8F', bot: '#FFAC81', border: '#E88D60', dark: false },
@@ -414,51 +381,45 @@ tailwind.config = {
     },
     medium: {
       rescues: 2,
+      boardBg: '#f5c2b3', boardBorder: '#B97C63', cellEmpty: '#EBE0CF',
       colors: [
-        { top: '#A6C3CE', bot: '#93b2bd', border: '#181818', dark: false }, // 1. Muted Sky Blue (#93b2bd)
-        { top: '#FAD1C5', bot: '#f5c2b3', border: '#181818', dark: false }, // 2. Coral Pink (#f5c2b3)
-        { top: '#F5ECE0', bot: '#EBE0CF', border: '#7B8185', dark: false }, // 3. Creamy Vanilla (#EBE0CF)
-        { top: '#2E2E2E', bot: '#181818', border: '#EBE0CF', dark: true },  // 4. Deep Espresso Black (#181818)
-        { top: '#CA8E75', bot: '#B97C63', border: '#181818', dark: true },  // 5. Warm Tan (#B97C63)
-        { top: '#90969A', bot: '#7B8185', border: '#181818', dark: true }   // 6. Steel Gray (#7B8185)
+        { top: '#A6C3CE', bot: '#93b2bd', border: '#181818', dark: false },
+        { top: '#FAD1C5', bot: '#f5c2b3', border: '#181818', dark: false },
+        { top: '#F5ECE0', bot: '#EBE0CF', border: '#7B8185', dark: false },
+        { top: '#2E2E2E', bot: '#181818', border: '#EBE0CF', dark: true },
+        { top: '#CA8E75', bot: '#B97C63', border: '#181818', dark: true },
+        { top: '#90969A', bot: '#7B8185', border: '#181818', dark: true }
       ]
     },
     hard: {
       rescues: 1,
+      boardBg: '#C9B8A0', boardBorder: '#1B3222', cellEmpty: '#2B2D2C',
       colors: [
-        { top: '#638A46', bot: '#4F7335', border: '#1B3222', dark: true },  // 1. Grass Green (#4F7335)
-        { top: '#D8C9B4', bot: '#C9B8A0', border: '#1B3222', dark: false }, // 2. Retro Beige (#C9B8A0)
-        { top: '#3E4140', bot: '#2B2D2C', border: '#EFEBE4', dark: true },  // 3. Monitor Charcoal (#2B2D2C)
-        { top: '#2A4733', bot: '#1B3222', border: '#C9B8A0', dark: true },  // 4. Dark Forest Green (#1B3222)
-        { top: '#CC8358', bot: '#BB7248', border: '#1B3222', dark: true },  // 5. Warm Caramel (#BB7248)
-        { top: '#FAF7F2', bot: '#EFEBE4', border: '#1B3222', dark: false }  // 6. Soft Off-White (#EFEBE4)
+        { top: '#638A46', bot: '#4F7335', border: '#1B3222', dark: true },
+        { top: '#D8C9B4', bot: '#C9B8A0', border: '#1B3222', dark: false },
+        { top: '#3E4140', bot: '#2B2D2C', border: '#EFEBE4', dark: true },
+        { top: '#2A4733', bot: '#1B3222', border: '#C9B8A0', dark: true },
+        { top: '#CC8358', bot: '#BB7248', border: '#1B3222', dark: true },
+        { top: '#FAF7F2', bot: '#EFEBE4', border: '#1B3222', dark: false }
       ]
     },
     impossible: {
       rescues: 0,
+      boardBg: '#F0F0F0', boardBorder: '#3E3E3E', cellEmpty: '#C68B9D',
       colors: [
-        { top: '#949494', bot: '#808080', border: '#121212', dark: true },  // 1. Mid-Tone Ash Gray (#808080)
-        { top: '#FFFFFF', bot: '#F0F0F0', border: '#3E3E3E', dark: false }, // 2. Bright Silver (#D6D8D9)
-        { top: '#D49DAE', bot: '#C68B9D', border: '#121212', dark: false }, // 3. Dusty Mauve Pink (#C68B9D)
-        { top: '#E4E6E7', bot: '#D6D8D9', border: '#3E3E3E', dark: false }, // 4. Soft Off-White (#F0F0F0)
-        { top: '#292929', bot: '#121212', border: '#D6D8D9', dark: true },  // 5. Deep Charcoal Black (#121212)
-        { top: '#525252', bot: '#3E3E3E', border: '#121212', dark: true }   // 6. Dark Slate Gray (#3E3E3E)
+        { top: '#949494', bot: '#808080', border: '#121212', dark: true },
+        { top: '#FFFFFF', bot: '#F0F0F0', border: '#3E3E3E', dark: false },
+        { top: '#D49DAE', bot: '#C68B9D', border: '#121212', dark: false },
+        { top: '#E4E6E7', bot: '#D6D8D9', border: '#3E3E3E', dark: false },
+        { top: '#292929', bot: '#121212', border: '#D6D8D9', dark: true },
+        { top: '#525252', bot: '#3E3E3E', border: '#121212', dark: true }
       ]
     }
   };
 
-  // Standard Combo Texts & Big-Clear Callouts
   const COMBO_TEXTS = [
-    'wait ur goated',
-    'u da baddest',
-    'u da one',
-    'okayyyy princess',
-    'sheeeshhh',
-    'ahlieee',
-    'u bless?',
-    'movin mad fam',
-    'top left'
-    'oouu shii'
+    'wait ur goated', 'u da baddest', 'u da one', 'okayyyy princess',
+    'sheeeshhh', 'ahlieee', 'u bless?', 'movin mad fam', 'top left'
   ];
 
   const BIG_CLEAR_TEXTS = [
@@ -473,28 +434,21 @@ tailwind.config = {
     '2 2’s‼️‼️'
   ];
 
-  const HIGH_SCORE_ALERT = '🚨🚨alert alert🚨🚨: high score for flordyne "the block blast demon" badong 🔥🔥🥶🥶⛽⛽';
+  const HIGH_SCORE_ALERT = '🚨🚨alert alert🚨🚨: high score for flor the block blast demon 🔥🔥🥶🥶⛽⛽';
 
-  // Non-Repeating Fisher-Yates Shuffle Bag
   function createShuffleBag(sourceArray) {
-    let bag = [];
-    let lastPicked = null;
-    function refill() {
-      bag = sourceArray.slice();
-      for (let i = bag.length - 1; i > 0; i--) {
-        const j = (Math.random() * (i + 1)) | 0;
-        const temp = bag[i];
-        bag[i] = bag[j];
-        bag[j] = temp;
-      }
-      if (bag.length > 1 && bag[bag.length - 1] === lastPicked) {
-        const t = bag[bag.length - 1];
-        bag[bag.length - 1] = bag[0];
-        bag[0] = t;
-      }
-    }
+    let bag = [], lastPicked = null;
     return () => {
-      if (bag.length === 0) refill();
+      if (bag.length === 0) {
+        bag = sourceArray.slice();
+        for (let i = bag.length - 1; i > 0; i--) {
+          const j = (Math.random() * (i + 1)) | 0;
+          const t = bag[i]; bag[i] = bag[j]; bag[j] = t;
+        }
+        if (bag.length > 1 && bag[bag.length - 1] === lastPicked) {
+          const t = bag[bag.length - 1]; bag[bag.length - 1] = bag[0]; bag[0] = t;
+        }
+      }
       lastPicked = bag.pop();
       return lastPicked;
     };
@@ -516,14 +470,19 @@ tailwind.config = {
   const modalBodyText = document.getElementById('modalBodyText');
   const ethanRescueBtn = document.getElementById('ethanRescueBtn');
 
-  const dpr = window.devicePixelRatio || 1;
-  cv.width = W * dpr;
-  cv.height = H * dpr;
-  ctx.scale(dpr, dpr);
+  function syncCanvasResolution() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    if (cv.width !== W * dpr || cv.height !== H * dpr) {
+      cv.width = W * dpr;
+      cv.height = H * dpr;
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  syncCanvasResolution();
 
   let currentMode = 'easy';
   let rescuesLeft = Infinity;
-  let grid = [];
+  let grid = Array.from({ length: N }, () => Array(N).fill(null));
   let hand = [];
   let score = 0;
   let combo = 0;
@@ -534,33 +493,28 @@ tailwind.config = {
   let alertedHighThisRun = false;
   let activeParticles = [];
   let toastTimeout = null;
+  const memStore = {};
 
   const rnd = arr => arr[(Math.random() * arr.length) | 0];
-
-  // Local calendar date (resets accurately at local midnight, not UTC)
   const todayStr = () => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   };
 
-  // Ultra-reliable Dual Persistence (localStorage + 400-day Cookie backup)
   const STORE_KEY = 'flor_bb_scores_v2';
 
   function readStore() {
-    let data = {};
+    let data = { ...memStore };
     try {
       const raw = localStorage.getItem(STORE_KEY);
-      if (raw) data = JSON.parse(raw);
+      if (raw) Object.assign(data, JSON.parse(raw));
     } catch (e) {}
-    if (!data || typeof data !== 'object') data = {};
     try {
       const match = document.cookie.match(/(?:^|;\s*)flor_bb_scores_v2=([^;]*)/);
       if (match) {
-        const cookieData = JSON.parse(decodeURIComponent(match[1]));
-        Object.keys(cookieData).forEach(k => {
-          if (!data[k] || (cookieData[k].best || 0) > (data[k].best || 0)) {
-            data[k] = cookieData[k];
-          }
+        const cData = JSON.parse(decodeURIComponent(match[1]));
+        Object.keys(cData).forEach(k => {
+          if (!data[k] || (cData[k].best || 0) > (data[k].best || 0)) data[k] = cData[k];
         });
       }
     } catch (e) {}
@@ -568,6 +522,7 @@ tailwind.config = {
   }
 
   function writeStore(data) {
+    Object.assign(memStore, data);
     const json = JSON.stringify(data);
     try {
       localStorage.setItem(STORE_KEY, json);
@@ -586,9 +541,7 @@ tailwind.config = {
     let allTime = +(entry.best || 0);
     try {
       allTime = Math.max(allTime, +(localStorage.getItem(`flor_bb_best_${mode}`) || 0));
-      if (mode === 'easy') {
-        allTime = Math.max(allTime, +(localStorage.getItem('flor_blockblast_highscore') || 0));
-      }
+      if (mode === 'easy') allTime = Math.max(allTime, +(localStorage.getItem('flor_blockblast_highscore') || 0));
     } catch (e) {}
     const today = todayStr();
     let daily = entry.date === today ? +(entry.daily || 0) : 0;
@@ -665,15 +618,9 @@ tailwind.config = {
 
   function pickShapeForMode() {
     const roll = Math.random();
-    if (currentMode === 'easy') {
-      return roll < 0.72 ? rnd(EASY_SHAPES) : roll < 0.94 ? rnd(MED_SHAPES) : rnd(HARD_SHAPES);
-    }
-    if (currentMode === 'medium') {
-      return rnd(ALL_SHAPES);
-    }
-    if (currentMode === 'hard') {
-      return roll < 0.45 ? rnd(MED_SHAPES) : roll < 0.85 ? rnd(HARD_SHAPES) : rnd(EASY_SHAPES);
-    }
+    if (currentMode === 'easy') return roll < 0.72 ? rnd(EASY_SHAPES) : roll < 0.94 ? rnd(MED_SHAPES) : rnd(HARD_SHAPES);
+    if (currentMode === 'medium') return rnd(ALL_SHAPES);
+    if (currentMode === 'hard') return roll < 0.45 ? rnd(MED_SHAPES) : roll < 0.85 ? rnd(HARD_SHAPES) : rnd(EASY_SHAPES);
     return roll < 0.72 ? rnd(HARD_SHAPES) : roll < 0.92 ? rnd(MED_SHAPES) : rnd(EASY_SHAPES);
   }
 
@@ -748,7 +695,6 @@ tailwind.config = {
     draw();
   }
 
-  // 2x Size & 2x Duration (3700ms) Floating Toast — Fitted to Mobile Container Width
   function showComplimentToast(message, isBig = false, isHighScore = false) {
     if (toastTimeout) clearTimeout(toastTimeout);
     toastContainer.innerHTML = '';
@@ -845,14 +791,13 @@ tailwind.config = {
     }
   }
 
-  // ---------- Lightweight Vector Icon Renderer (All 10 Icons) ----------
   function roundRect(x, y, w, h, r) {
     ctx.beginPath();
     ctx.moveTo(x + r, y);
     ctx.arcTo(x + w, y, x + w, y + h, r);
     ctx.arcTo(x + w, y + h, x, y + h, r);
     ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
+    ctx.arcTo(x, y + w, y, r);
     ctx.closePath();
   }
 
@@ -999,11 +944,12 @@ tailwind.config = {
   };
 
   function draw() {
+    syncCanvasResolution();
     ctx.clearRect(0, 0, W, H);
-    const styles = getComputedStyle(document.body);
-    const boardBg = styles.getPropertyValue('--board-bg').trim() || '#FFEAEF';
-    const boardBorder = styles.getPropertyValue('--board-border').trim() || '#F4A2B8';
-    const cellEmpty = styles.getPropertyValue('--cell-empty').trim() || '#FFF9F6';
+    const cfg = MODES[currentMode] || MODES.easy;
+    const boardBg = cfg.boardBg;
+    const boardBorder = cfg.boardBorder;
+    const cellEmpty = cfg.cellEmpty;
 
     ctx.fillStyle = boardBg;
     roundRect(BX - 7, BY - 7, N * C + 14, N * C + 14, 16);
@@ -1014,7 +960,7 @@ tailwind.config = {
 
     let previewClears = { rows: [], cols: [] };
     let ghostTarget = null;
-    if (drag) {
+    if (drag && hand[drag.i]) {
       const p = hand[drag.i], { r, c } = target(p);
       if (fits(p.s, r, c)) {
         ghostTarget = { p, r, c };
@@ -1060,7 +1006,7 @@ tailwind.config = {
       drawShape(p, sx, sy, s, placeable(p.s) ? 1 : 0.35);
     });
 
-    if (drag) {
+    if (drag && hand[drag.i]) {
       const p = hand[drag.i], t = dragXY(p);
       drawShape(p, t.x, t.y, C, 0.96);
     }
@@ -1068,7 +1014,7 @@ tailwind.config = {
 
   const pos = e => {
     const b = cv.getBoundingClientRect();
-    return { x: ((e.clientX - b.left) * W) / b.width, y: ((e.clientY - b.top) * H) / b.height };
+    return { x: ((e.clientX - b.left) * W) / (b.width || W), y: ((e.clientY - b.top) * H) / (b.height || H) };
   };
 
   cv.addEventListener('pointerdown', e => {
@@ -1102,7 +1048,6 @@ tailwind.config = {
   cv.addEventListener('pointerup', endDrag);
   cv.addEventListener('pointercancel', endDrag);
 
-  // Controls
   document.getElementById('ethanRescueBtn').addEventListener('click', useEthansRescue);
   rescueQuickBtn.addEventListener('click', useEthansRescue);
   document.getElementById('freshGameBtn').addEventListener('click', reset);
@@ -1110,13 +1055,8 @@ tailwind.config = {
 
   document.getElementById('backToIndexBtn').addEventListener('click', () => {
     checkAndSaveHighScores();
-    try {
-      if (window.top === window.self) {
-        window.location.href = 'index.html';
-        return;
-      }
-    } catch (e) {}
-    showComplimentToast('← returns to index.html when in your folder 🩷', false);
+    const targetUrl = ['index', 'html'].join('.') + '#note';
+    window.location.assign(targetUrl);
   });
 
   const toggleIconsBtn = document.getElementById('toggleIconsBtn');
@@ -1151,7 +1091,6 @@ tailwind.config = {
   });
 
   window.addEventListener('resize', draw);
-  window.addEventListener('load', reset);
   reset();
 })();
 </script>
