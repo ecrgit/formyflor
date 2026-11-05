@@ -392,6 +392,15 @@
     <!-- Particle Container -->
     <div id="particle-container" class="fixed inset-0 pointer-events-none z-50 overflow-hidden"></div>
 
+    <!-- One-Time 6th Hug Drake Pop-Up Modal -->
+    <div id="drake-hug-popup" class="hidden fixed inset-0 z-[10000] flex items-center justify-center bg-berry/30 backdrop-blur-sm px-6 pointer-events-none">
+        <div class="bg-white border-4 border-roseSoft rounded-3xl p-6 shadow-2xl text-center max-w-xs w-full animate-bounce">
+            <p class="text-xl sm:text-2xl font-extrabold text-berry leading-snug">
+                6 hugs?!?! 6 like Drake🦉6️⃣ ??
+            </p>
+        </div>
+    </div>
+
     <!-- Main Mobile-First Container -->
     <main class="relative z-10 max-w-md mx-auto px-4 pt-5 sm:pt-8">
 
@@ -644,14 +653,6 @@
                         <span>Tap for a Hug &lt;3</span>
                         <span class="text-lg pointer-events-none">🫂</span>
                     </button>
-
-                    <!-- Hidden Easter Egg Song Link Banner -->
-                    <a id="spotify-easter-egg"
-                       href="https://open.spotify.com/track/6QOwbaFzauGLVdITOrDwfi?si=UNDyZvsdQJev8_w_mZGIdg&utm_source=copy-link"
-                       target="_blank" rel="noopener noreferrer"
-                       class="hidden bg-blush/90 border border-roseSoft rounded-2xl p-3 text-center text-xs font-extrabold text-berry hover:bg-pink-200 transition shadow-sm">
-                        🎵 6 Hugs Unlocked! Tap here if your special song didn't open automatically 🫂💖
-                    </a>
                 </div>
 
                 <!-- 2. Calming "Take Deep Breaths" Nervous System Pacer -->
@@ -691,25 +692,20 @@
                     </div>
                 </div>
 
-                <!-- 3. Rotating Texts ("Reminders of Us") -->
+                <!-- 3. Rotating Texts ("auto flor glaze") -->
                 <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
-                    <div class="flex items-center justify-between gap-2">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
-                                <use href="#icon-beagle-mini"></use>
-                            </svg>
-                            <div>
-                                <h2 class="text-base font-extrabold text-berry">
-                                    texts &amp; reminders of us
-                                </h2>
-                                <p class="text-xs text-warmText/80 mt-0.5">
-                                    real texts from me whenever u need a smile
-                                </p>
-                            </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
+                            <use href="#icon-beagle-mini"></use>
+                        </svg>
+                        <div>
+                            <h2 class="text-base font-extrabold text-berry">
+                                auto flor glaze
+                            </h2>
+                            <p class="text-xs text-warmText/80 mt-0.5">
+                                real texts from me if u ever doubt my love for u
+                            </p>
                         </div>
-                        <span id="text-deck-counter" class="text-[11px] font-bold bg-blush text-berry px-2.5 py-1 rounded-full shrink-0">
-                            68 notes 💌
-                        </span>
                     </div>
 
                     <!-- Chat Bubble Display Box -->
@@ -725,7 +721,7 @@
                     </button>
                 </div>
 
-                <!-- 4. The 10-Minute Anxiety Sorter & Brain Dump -->
+                <!-- 4. Anxiety Dump + Sorter -->
                 <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
                     <div class="flex items-center gap-3">
                         <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
@@ -733,21 +729,24 @@
                         </svg>
                         <div>
                             <h2 class="text-base font-extrabold text-berry">
-                                10-minute anxiety sorter
+                                anxiety dump + sorter
                             </h2>
                             <p class="text-xs text-warmText/80 mt-0.5">
-                                unedited brain dump &amp; "poof away" gate
+                                To help you regulate your emotions and keep u grounded in the present and not stuck in an improbable future.
                             </p>
                         </div>
                     </div>
 
                     <!-- Calming Explanation of the Timer & Sorter -->
-                    <div class="bg-cream/90 border border-pink-100 rounded-2xl p-3.5 text-xs text-warmText/90 leading-relaxed space-y-1.5">
+                    <div class="bg-cream/90 border border-pink-100 rounded-2xl p-3.5 text-xs text-warmText/90 leading-relaxed space-y-2">
                         <p>
-                            <strong class="text-berry">How this protects your peace:</strong> When your head is racing, holding everything in working memory exhausts your nervous system. Start the <strong>10-minute processing window</strong> below and dump every raw, unedited thought out of your head.
+                            Use this when your head is spiraling on what ifs. Holding everything in exhausts your nervous system and will overstimulate u and won’t solve anything.
                         </p>
                         <p>
-                            Then sort each worry into <strong>Can Control Right Now</strong> vs. <strong>Cannot Control Right Now</strong>. Everything you cannot control gets stamped with a <em>"Check Again Tomorrow"</em> lock—and when the 10-minute timer ends, those uncontrollable thoughts gently <strong>poof away</strong> so your brain knows the window is officially closed and you have permission to let them go.
+                            Start the 10-minute processing window below and dump every raw, unedited thought out of your head.
+                        </p>
+                        <p>
+                            Then sort each worry into <strong>Can Control Right Now</strong> vs. <strong>Cannot Control Right Now</strong>. Everything you cannot control gets stamped with a <em>"Check Again Tomorrow"</em> lock and when the 10-minute timer ends, those uncontrollable thoughts will poof away so your brain knows the window is officially closed and you can let them go for now :)
                         </p>
                     </div>
 
@@ -832,27 +831,11 @@
                     </div>
                 </div>
 
-                <!-- 5. Block Blast Distraction Link -->
-                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md flex flex-col gap-3.5">
-                    <div class="flex items-center gap-3">
-                        <svg class="w-12 h-12 shrink-0 critter-sticker" onclick="critterTap(this, event)">
-                            <use href="#icon-beagle-heart"></use>
-                        </svg>
-                        <div>
-                            <h2 class="text-base font-extrabold text-berry">
-                                need a brain break?
-                            </h2>
-                            <p class="text-xs text-warmText/80 mt-0.5">
-                                zone out and clear some blocks for a bit
-                            </p>
-                        </div>
-                    </div>
-
-                    <a href="game.html" class="block no-underline">
-                        <button type="button" class="uniform-tap-btn bg-gradient-to-r from-roseDeep to-roseSoft text-white">
-                            <span>Need a distraction? Play Block Blast 🧩</span>
-                        </button>
-                    </a>
+                <!-- 5. Surprise Coming Soon Section -->
+                <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pink-100 p-5 shadow-md text-center">
+                    <p class="text-sm font-extrabold text-berry">
+                        surprise coming soon
+                    </p>
                 </div>
 
             </div>
@@ -927,9 +910,7 @@
             }
         };
 
-        // FIXED: Safari DOM mutation cancellation bug. Replaced pointerdown with click.
         document.addEventListener('click', (e) => {
-            // Ignore clicks on buttons/inputs to prevent double-spawning or breaking native clicks
             if (e.target.closest('button, a, input, textarea, .critter-sticker, .envelope-card, .fact-card')) return;
             spawnHeartParticle(e.clientX, e.clientY);
         });
@@ -991,8 +972,9 @@
             }
         };
 
-        // --- 4. VIRTUAL HUG (🫂 VARIATIONS + 6-HUG SPOTIFY EASTER EGG) ---
+        // --- 4. VIRTUAL HUG (🫂 VARIATIONS + ONE-TIME 6-HUG DRAKE POP-UP) ---
         let hugCount = 0;
+        let drakeEasterEggShown = false;
         const SPOTIFY_URL = 'https://open.spotify.com/track/6QOwbaFzauGLVdITOrDwfi?si=UNDyZvsdQJev8_w_mZGIdg&utm_source=copy-link';
 
         function spawnHugVariation(variationIndex, isSuperEasterEgg = false) {
@@ -1092,13 +1074,18 @@
             hugCount++;
             document.getElementById('hug-count').textContent = hugCount;
 
-            if (hugCount === 6) {
+            if (hugCount === 6 && !drakeEasterEggShown) {
+                drakeEasterEggShown = true;
                 spawnHugVariation(0, true);
-                document.getElementById('spotify-easter-egg').classList.remove('hidden');
+
+                const popup = document.getElementById('drake-hug-popup');
+                popup.classList.remove('hidden');
+
+                // Keep pop-up on screen for ~2 seconds, then hide it and redirect to Spotify
                 setTimeout(() => {
-                    const win = window.open(SPOTIFY_URL, '_blank');
-                    if (!win) window.location.href = SPOTIFY_URL;
-                }, 1200);
+                    popup.classList.add('hidden');
+                    window.location.href = SPOTIFY_URL;
+                }, 2000);
             } else {
                 const variation = (hugCount - 1) % 4;
                 spawnHugVariation(variation, false);
@@ -1159,7 +1146,7 @@
             }
         };
 
-        // --- 6. 68 CURATED ROTATING TEXTS FOR FLOR ---
+        // --- 6. ROTATING TEXTS FOR FLOR (NO VISIBLE COUNTER) ---
         const rawCuteTexts = `
 i love u im excited to see u tmr 😸
 i love u too and i hope we can keep working w each other
@@ -1234,7 +1221,6 @@ i’m just feeling very thankful for us tn
 
         const cuteTexts = rawCuteTexts.split('\n').map(t => t.trim()).filter(t => t.length > 0);
         let textDeck = [];
-        let seenCount = 0;
 
         window.showRandomText = function(e) {
             if (e) {
@@ -1243,19 +1229,15 @@ i’m just feeling very thankful for us tn
             }
             if (textDeck.length === 0) {
                 textDeck = [...cuteTexts].sort(() => Math.random() - 0.5);
-                seenCount = 0;
             }
             const picked = textDeck.pop();
-            seenCount++;
 
             const display = document.getElementById('cute-text-display');
-            const counter = document.getElementById('text-deck-counter');
             display.style.opacity = '0';
 
             setTimeout(() => {
                 display.textContent = `"${picked}"`;
                 display.style.opacity = '1';
-                counter.textContent = `${seenCount}/${cuteTexts.length} 💌`;
             }, 160);
         };
 
