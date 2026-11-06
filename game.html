@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="flor's block blast">
 <title>block blast: flor edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,181 +27,119 @@ if (window.tailwind) {
 </script>
 <style>
   :root {
-    --bg-main: radial-gradient(circle at top, #FFF0F3 0%, #FFF9F6 55%, #FDE8EE 100%);
-    --frame-bg: #FFEAEF;
-    --board-bg: #FFEAEF;
-    --board-border: #F4A2B8;
-    --cell-empty: #FFF9F6;
-    --pill-bg: #FFF9F6;
-    --pill-text: #6D2E46;
-    --accent: #E05780;
-    --accent-text: #FFFFFF;
-    --score-col: #E05780;
-    --heading: #6D2E46;
-    --subtext: #4A353B;
+    --bg-main: radial-gradient(circle at top, #FFF0F3 0%, #FFF9F6 55%, #FDE8EE 100%); --frame-bg: #FFEAEF;
+    --board-bg: #FFEAEF; --board-border: #F4A2B8;
+    --cell-empty: #FFF9F6; --pill-bg: #FFF9F6;
+    --pill-text: #6D2E46; --accent: #E05780;
+    --accent-text: #FFFFFF; --score-col: #E05780;
+    --heading: #6D2E46; --subtext: #4A353B;
   }
-
   body[data-mode="medium"] {
-    --bg-main: #93b2bd;
-    --frame-bg: #f5c2b3;
-    --board-bg: #f5c2b3;
-    --board-border: #B97C63;
-    --cell-empty: #EBE0CF;
-    --pill-bg: #EBE0CF;
-    --pill-text: #181818;
-    --accent: #93b2bd;
-    --accent-text: #181818;
-    --score-col: #B97C63;
-    --heading: #181818;
-    --subtext: #7B8185;
+    --bg-main: #93b2bd; --frame-bg: #f5c2b3;
+    --board-bg: #f5c2b3; --board-border: #B97C63;
+    --cell-empty: #EBE0CF; --pill-bg: #EBE0CF;
+    --pill-text: #181818; --accent: #93b2bd;
+    --accent-text: #181818; --score-col: #B97C63;
+    --heading: #181818; --subtext: #7B8185;
   }
-
   body[data-mode="hard"] {
-    --bg-main: #4F7335;
-    --frame-bg: #C9B8A0;
-    --board-bg: #C9B8A0;
-    --board-border: #1B3222;
-    --cell-empty: #2B2D2C;
-    --pill-bg: #2B2D2C;
-    --pill-text: #EFEBE4;
-    --accent: #4F7335;
-    --accent-text: #EFEBE4;
-    --score-col: #BB7248;
-    --heading: #1B3222;
-    --subtext: #1B3222;
+    --bg-main: #4F7335; --frame-bg: #C9B8A0;
+    --board-bg: #C9B8A0; --board-border: #1B3222;
+    --cell-empty: #2B2D2C; --pill-bg: #2B2D2C;
+    --pill-text: #EFEBE4; --accent: #4F7335;
+    --accent-text: #EFEBE4; --score-col: #BB7248;
+    --heading: #1B3222; --subtext: #1B3222;
   }
-
   body[data-mode="impossible"] {
-    --bg-main: #808080;
-    --frame-bg: #F0F0F0;
-    --board-bg: #F0F0F0;
-    --board-border: #3E3E3E;
-    --cell-empty: #C68B9D;
-    --pill-bg: #D6D8D9;
-    --pill-text: #121212;
-    --accent: #C68B9D;
-    --accent-text: #121212;
-    --score-col: #C68B9D;
-    --heading: #121212;
-    --subtext: #3E3E3E;
+    --bg-main: #808080; --frame-bg: #F0F0F0;
+    --board-bg: #F0F0F0; --board-border: #3E3E3E;
+    --cell-empty: #C68B9D; --pill-bg: #D6D8D9;
+    --pill-text: #121212; --accent: #C68B9D;
+    --accent-text: #121212; --score-col: #C68B9D;
+    --heading: #121212; --subtext: #3E3E3E;
   }
-
   * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
+    box-sizing: border-box; -webkit-tap-highlight-color: transparent;
+    user-select: none; -webkit-user-select: none;
     text-transform: lowercase;
   }
-
   #memoryTicker {
-    text-transform: uppercase !important;
+    text-transform: uppercase !important; letter-spacing: 0.04em;
+  }
+  .title-block-font {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
     letter-spacing: 0.04em;
   }
-
   .hidden { display: none !important; }
   .font-hand { font-family: 'Caveat', cursive; }
-
   html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100dvh;
-    background: var(--bg-main);
-    color: var(--heading);
-    font-family: 'Nunito', sans-serif;
-    overscroll-behavior: none;
-    overflow-x: hidden;
-    transition: background 0.3s ease, color 0.3s ease;
+    margin: 0; padding: 0;
+    width: 100%; min-height: 100dvh;
+    background: var(--bg-main); color: var(--heading);
+    font-family: 'Nunito', sans-serif; overscroll-behavior: none;
+    overflow-x: hidden; transition: background 0.3s ease, color 0.3s ease;
   }
-
   .lock-touch {
-    touch-action: none;
-    overscroll-behavior: none;
+    touch-action: none; overscroll-behavior: none;
   }
-
   #bb {
-    display: block;
-    width: 100%;
-    max-width: 368px;
-    aspect-ratio: 360 / 468;
-    margin: 0 auto;
-    border-radius: 16px;
+    display: block; width: 100%;
+    max-width: 368px; aspect-ratio: 360 / 468;
+    margin: 0 auto; border-radius: 16px;
   }
-
   .photobooth-frame {
-    background: var(--frame-bg);
-    border: 2.5px solid var(--board-border);
+    background: var(--frame-bg); border: 2.5px solid var(--board-border);
     box-shadow: 0 14px 34px rgba(18, 18, 18, 0.18);
     transition: background 0.3s ease, border-color 0.3s ease;
   }
-
   .themed-pill {
-    background: var(--pill-bg);
-    color: var(--pill-text);
-    border: 1.5px solid var(--board-border);
-    transition: all 0.2s ease;
+    background: var(--pill-bg); color: var(--pill-text);
+    border: 1.5px solid var(--board-border); transition: all 0.2s ease;
     cursor: pointer;
   }
-
   .themed-pill-active {
-    background: var(--accent);
-    color: var(--accent-text);
-    border: 2px solid var(--heading);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
-    transition: all 0.2s ease;
-    cursor: pointer;
+    background: var(--accent); color: var(--accent-text);
+    border: 2px solid var(--heading); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+    transition: all 0.2s ease; cursor: pointer;
   }
-
   .themed-score-text { color: var(--score-col); }
   .themed-heading { color: var(--heading); }
   .themed-subtext { color: var(--subtext); }
-
   @keyframes critterCheer {
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
     30% { transform: translateY(-6px) rotate(-8deg) scale(1.1); }
     65% { transform: translateY(-3px) rotate(8deg) scale(1.08); }
   }
   .critter-wiggle { animation: critterCheer 0.6s ease; }
-
   @keyframes toastPopLong {
-    0% { opacity: 0; transform: translate(-50%, 14px) scale(0.85); }
-    8% { opacity: 1; transform: translate(-50%, 0px) scale(1.02); }
-    90% { opacity: 1; transform: translate(-50%, -2px) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -16px) scale(0.95); }
+    0% { opacity: 0; transform: translate(-50%, 10px) scale(0.85); }
+    9% { opacity: 1; transform: translate(-50%, 0px) scale(1.02); }
+    88% { opacity: 1; transform: translate(-50%, -2px) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -14px) scale(0.95); }
   }
   .compliment-toast {
-    animation: toastPopLong 3.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    pointer-events: none;
-    font-size: clamp(1.75rem, 6.2vw, 2.35rem);
-    line-height: 1.12;
-    width: calc(100% - 8px);
-    max-width: 344px;
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    animation: toastPopLong 3.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    pointer-events: none; font-size: clamp(1.55rem, 5.6vw, 2.1rem);
+    line-height: 1.12; width: calc(100% - 8px);
+    max-width: 344px; white-space: normal;
+    overflow-wrap: break-word; word-break: break-word;
     text-align: center;
   }
   .compliment-toast.highscore-toast {
-    font-size: clamp(1.25rem, 4.6vw, 1.6rem);
-    line-height: 1.18;
+    font-size: clamp(1.2rem, 4.4vw, 1.5rem); line-height: 1.18;
   }
-
   @keyframes floatParticle {
     0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
     100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.4); }
   }
   .celebration-particle {
-    position: fixed;
-    pointer-events: none;
-    z-index: 60;
-    font-size: 1.15rem;
+    position: fixed; pointer-events: none;
+    z-index: 60; font-size: 1.15rem;
     animation: floatParticle 1.15s ease-out forwards;
   }
 </style>
 </head>
 <body class="flex flex-col items-center justify-start min-h-[100dvh] px-3 py-2">
-
 <svg class="hidden" aria-hidden="true">
   <symbol id="icon-beagle-heart" viewBox="0 0 64 64">
     <path d="M24 44 L22 56 L40 56 L38 44 Z" fill="#FFFFFF" stroke="#181818" stroke-width="2.4" stroke-linejoin="round"/>
@@ -211,7 +152,6 @@ if (window.tailwind) {
     <path d="M36 36 Q42 38 46 35" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round"/>
     <path d="M32 11 C30 7, 24 8, 26 13 C27 16, 32 19, 32 19 C32 19, 37 16, 38 13 C40 8, 34 7, 32 11 Z" fill="#E05780"/>
   </symbol>
-
   <symbol id="icon-highland-cow" viewBox="0 0 64 64">
     <path d="M12 22 C6 18, 6 12, 13 13 C16 14, 19 18, 21 21" fill="none" stroke="#E5B263" stroke-width="4" stroke-linecap="round"/>
     <path d="M52 22 C58 18, 58 12, 51 13 C48 14, 45 18, 43 21" fill="none" stroke="#E5B263" stroke-width="4" stroke-linecap="round"/>
@@ -222,7 +162,6 @@ if (window.tailwind) {
     <circle cx="24" cy="34" r="2.2" fill="#4A353B"/><circle cx="40" cy="34" r="2.2" fill="#4A353B"/>
   </symbol>
 </svg>
-
 <main class="w-full max-w-md mx-auto flex flex-col gap-1.5 select-none">
   <nav class="flex items-center justify-between gap-1.5 px-1">
     <button id="backToIndexBtn" type="button"
@@ -240,8 +179,7 @@ if (window.tailwind) {
       </button>
     </div>
   </nav>
-
-  <section class="photobooth-frame rounded-3xl p-2.5 flex flex-col gap-2 relative">
+  <section class="photobooth-frame rounded-3xl p-2.5 flex flex-col gap-1.5 relative">
     <div class="flex flex-col gap-1 border-b border-black/15 pb-1.5 px-1">
       <div class="flex items-center justify-between gap-1.5" role="group" aria-label="difficulty modes">
         <button type="button" data-mode="easy" class="mode-btn themed-pill-active flex-1 py-1 rounded-full text-[11px] font-extrabold">
@@ -263,39 +201,39 @@ if (window.tailwind) {
         <span>🌼🤍🌷</span>
       </div>
     </div>
-
-    <div class="flex items-center justify-between gap-1.5 px-1">
-      <div id="critterLeft" class="themed-pill flex items-center gap-1.5 rounded-2xl px-2 py-1 shadow-sm shrink-0">
-        <svg class="w-8 h-8 shrink-0"><use href="#icon-beagle-heart"></use></svg>
-        <div class="leading-tight">
-          <div class="text-[10px] font-extrabold opacity-75">score</div>
-          <div id="scoreDisplay" class="text-base font-black themed-score-text tabular-nums">0</div>
-        </div>
-      </div>
-
-      <div class="flex-1 flex items-center justify-center text-center px-1 min-w-0">
-        <h1 id="mainPageTitle" class="font-hand text-2xl sm:text-3xl font-bold themed-heading leading-none tracking-tight">
-          block blast: flor edition
-        </h1>
-      </div>
-
-      <div id="critterRight" class="themed-pill flex items-center gap-1.5 rounded-2xl px-2 py-1 shadow-sm shrink-0">
-        <div class="leading-tight text-right">
-          <div class="text-[10px] font-extrabold opacity-75">best / today</div>
-          <div class="text-xs font-black tabular-nums">
-            <span id="bestDisplay">0</span> <span class="opacity-50">/</span> <span id="dailyDisplay" class="themed-score-text">0</span>
+    <div class="flex flex-col gap-0.5 px-1">
+      <div class="flex items-center justify-between gap-1.5">
+        <div id="critterLeft" class="themed-pill flex items-center gap-1.5 rounded-2xl px-2 py-1 shadow-sm shrink-0">
+          <svg class="w-8 h-8 shrink-0"><use href="#icon-beagle-heart"></use></svg>
+          <div class="leading-tight">
+            <div class="text-[10px] font-extrabold opacity-75">score</div>
+            <div id="scoreDisplay" class="text-base font-black themed-score-text tabular-nums">0</div>
           </div>
         </div>
-        <svg class="w-7 h-7 shrink-0"><use href="#icon-highland-cow"></use></svg>
+        <div class="flex-1 flex items-center justify-center text-center px-1 min-w-0">
+          <h1 id="mainPageTitle" class="themed-heading flex flex-col items-center justify-center leading-none">
+            <span class="title-block-font text-[13px] sm:text-sm whitespace-nowrap leading-tight">block blast:</span>
+            <span class="font-hand text-2xl sm:text-[28px] font-bold whitespace-nowrap leading-none -mt-0.5">flor edition</span>
+          </h1>
+        </div>
+        <div id="critterRight" class="themed-pill flex items-center gap-1.5 rounded-2xl px-2 py-1 shadow-sm shrink-0">
+          <div class="leading-tight text-right">
+            <div class="text-[10px] font-extrabold opacity-75">best / today</div>
+            <div class="text-xs font-black tabular-nums">
+              <span id="bestDisplay">0</span> <span class="opacity-50">/</span> <span id="dailyDisplay" class="themed-score-text">0</span>
+            </div>
+          </div>
+          <svg class="w-7 h-7 shrink-0"><use href="#icon-highland-cow"></use></svg>
+        </div>
+      </div>
+      <div id="ethanTabBadge" class="text-[11px] font-extrabold themed-heading text-center pt-0.5">
+        ethan's tab: 0/10 rescues (10 left for 1st 📸)
       </div>
     </div>
-
     <div id="toastContainer" class="relative w-full h-0 z-40 pointer-events-none"></div>
-
     <div id="gameStage" class="relative w-full flex flex-col items-center lock-touch">
       <canvas id="bb" width="360" height="468" class="lock-touch"></canvas>
     </div>
-
     <div class="flex items-center justify-between gap-2 pt-1 border-t border-black/15 px-1 text-xs">
       <div id="memoryTicker" class="font-black themed-heading truncate">
         ITS BLOCKIN TIME
@@ -311,14 +249,13 @@ if (window.tailwind) {
         </button>
       </div>
     </div>
-
     <div id="gameOverModal" class="hidden absolute inset-0 z-50 rounded-3xl bg-black/55 backdrop-blur-sm flex items-center justify-center p-4">
       <div class="photobooth-frame w-full max-w-xs rounded-3xl p-5 text-center shadow-2xl flex flex-col items-center gap-3">
         <div class="flex items-center justify-center gap-2">
           <svg class="w-11 h-11"><use href="#icon-beagle-heart"></use></svg>
           <svg class="w-10 h-10"><use href="#icon-highland-cow"></use></svg>
         </div>
-        <h2 class="font-hand text-3xl font-bold themed-heading leading-tight">
+        <h2 id="modalTitleText" class="font-hand text-3xl font-bold themed-heading leading-tight">
           its joever
         </h2>
         <p id="modalBodyText" class="text-xs themed-heading leading-relaxed">
@@ -338,11 +275,18 @@ if (window.tailwind) {
     </div>
   </section>
 </main>
-
 <script>
 (() => {
   const N = 8, C = 40, BX = 20, BY = 14, W = 360, H = 468, TY = 350;
-
+  // Optional permanent baseline floor (update if you want hard-baked minimum records in code)
+  const BASELINE_SCORES = {
+    easy: 0,
+    medium: 0,
+    hard: 0,
+    impossible: 0
+  };
+  // Optional free cloud sync endpoint (e.g. Firebase Realtime DB URL ending in /flor_bb.json)
+  const CLOUD_SYNC_URL = '';
   const EASY_SHAPES = [
     [[1]], [[1,1]], [[1,1,1]], [[1],[1]], [[1],[1],[1]],
     [[1,1],[1,1]],
@@ -359,14 +303,12 @@ if (window.tailwind) {
     [[1,1,1],[1,1,1],[1,1,1]],
     [[1,0,0],[1,0,0],[1,1,1]], [[0,0,1],[0,0,1],[1,1,1]],
     [[1,1,1],[1,0,0],[1,0,0]], [[1,1,1],[0,0,1],[0,0,1]]
-  ];
-  const ALL_SHAPES = [...EASY_SHAPES, ...MED_SHAPES, ...HARD_SHAPES];
-
+  ]; const ALL_SHAPES = [...EASY_SHAPES, ...MED_SHAPES, ...HARD_SHAPES];
   const ICONS = [
     'kiss', 'guitar', 'butterfly', 'tulip', 'lily',
-    'octopus', 'sushi', 'teddy', 'digicam', 'monkey'
+    'octopus', 'sushi', 'teddy', 'digicam', 'monkey',
+    'bow', 'cat', 'heart'
   ];
-
   const MODES = {
     easy: {
       rescues: Infinity,
@@ -416,12 +358,11 @@ if (window.tailwind) {
       ]
     }
   };
-
   const COMBO_TEXTS = [
     'wait ur goated', 'u da baddest', 'u da one', 'okayyyy princess',
-    'sheeeshhh', 'ahlieee', 'u bless?', 'movin mad fam', 'top left'
+    'sheeeshhh', 'ahlieee', 'u bless?', 'movin mad fam', 'top left',
+    'gooodd boyyyy'
   ];
-
   const BIG_CLEAR_TEXTS = [
     'u murkin ts‼️‼️',
     'bare combos crodie‼️‼️',
@@ -433,9 +374,8 @@ if (window.tailwind) {
     "geeeez the candies⁉️⁉️the candy man's home‼️‼️",
     '2 2’s‼️‼️'
   ];
-
   const HIGH_SCORE_ALERT = '🚨🚨alert alert🚨🚨: high score for flor the block blast demon 🔥🔥🥶🥶⛽⛽';
-
+  const EASY_ENDGAME_TEXT = 'yayy good job baby u did it!';
   function createShuffleBag(sourceArray) {
     let bag = [], lastPicked = null;
     return () => {
@@ -453,12 +393,9 @@ if (window.tailwind) {
       return lastPicked;
     };
   }
-
   const nextComboText = createShuffleBag(COMBO_TEXTS);
   const nextBigClearText = createShuffleBag(BIG_CLEAR_TEXTS);
-
-  const cv = document.getElementById('bb');
-  const ctx = cv.getContext('2d');
+  const cv = document.getElementById('bb'); const ctx = cv.getContext('2d');
   const scoreDisplay = document.getElementById('scoreDisplay');
   const bestDisplay = document.getElementById('bestDisplay');
   const dailyDisplay = document.getElementById('dailyDisplay');
@@ -467,124 +404,254 @@ if (window.tailwind) {
   const critterLeft = document.getElementById('critterLeft');
   const critterRight = document.getElementById('critterRight');
   const gameOverModal = document.getElementById('gameOverModal');
+  const modalTitleText = document.getElementById('modalTitleText');
   const modalBodyText = document.getElementById('modalBodyText');
   const ethanRescueBtn = document.getElementById('ethanRescueBtn');
-
   function syncCanvasResolution() {
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
     if (cv.width !== W * dpr || cv.height !== H * dpr) {
-      cv.width = W * dpr;
-      cv.height = H * dpr;
+      cv.width = W * dpr; cv.height = H * dpr;
     }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  syncCanvasResolution();
-
-  let currentMode = 'easy';
+  syncCanvasResolution(); let currentMode = 'easy';
   let rescuesLeft = Infinity;
   let grid = Array.from({ length: N }, () => Array(N).fill(null));
-  let hand = [];
-  let score = 0;
-  let combo = 0;
-  let drag = null;
-  let over = false;
-  let showArtMotifs = true;
-  let soundEnabled = true;
-  let alertedHighThisRun = false;
-  let activeParticles = [];
-  let toastTimeout = null;
+  let hand = []; let score = 0;
+  let combo = 0; let turnsPlayed = 0;
+  let easyClearGoal = 46; let drag = null;
+  let over = false; let showArtMotifs = true;
+  let soundEnabled = true; let alertedHighThisRun = false;
+  let activeParticles = []; let toastTimeout = null;
   const memStore = {};
-
   const rnd = arr => arr[(Math.random() * arr.length) | 0];
   const todayStr = () => {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  };
-
-  const STORE_KEY = 'flor_bb_scores_v2';
-
+  }; const STORE_KEY = 'flor_bb_scores_v2';
+  const IDB_NAME = 'flor_blockblast_db'; const IDB_STORE = 'scores';
+  function mergeStoreObjects(target, incoming) {
+    if (!incoming || typeof incoming !== 'object') return target;
+    const today = todayStr();
+    ['easy', 'medium', 'hard', 'impossible'].forEach(m => {
+      const inc = incoming[m] || {};
+      const cur = target[m] || { best: BASELINE_SCORES[m] || 0, daily: 0, date: today };
+      const best = Math.max(cur.best || 0, inc.best || 0, BASELINE_SCORES[m] || 0);
+      let daily = cur.date === today ? (cur.daily || 0) : 0;
+      if (inc.date === today) daily = Math.max(daily, inc.daily || 0);
+      target[m] = { best, daily, date: today }; });
+    const rCount = Math.max(+(target._rescueTotal || 0), +(incoming._rescueTotal || 0));
+    target._rescueTotal = rCount;
+    return target;
+  }
   function readStore() {
-    let data = { ...memStore };
+    const today = todayStr();
+    let data = {
+      easy: { best: BASELINE_SCORES.easy || 0, daily: 0, date: today },
+      medium: { best: BASELINE_SCORES.medium || 0, daily: 0, date: today },
+      hard: { best: BASELINE_SCORES.hard || 0, daily: 0, date: today },
+      impossible: { best: BASELINE_SCORES.impossible || 0, daily: 0, date: today },
+      _rescueTotal: 0
+    }; mergeStoreObjects(data, memStore);
+    // 1. LocalStorage
     try {
       const raw = localStorage.getItem(STORE_KEY);
-      if (raw) Object.assign(data, JSON.parse(raw));
+      if (raw) mergeStoreObjects(data, JSON.parse(raw));
+      ['easy', 'medium', 'hard', 'impossible'].forEach(m => {
+        const legacyBest = +(localStorage.getItem(`flor_bb_best_${m}`) || 0);
+        if (legacyBest > data[m].best) data[m].best = legacyBest;
+        if (localStorage.getItem(`flor_bb_date_${m}`) === today) {
+          const legacyDaily = +(localStorage.getItem(`flor_bb_daily_${m}`) || 0);
+          if (legacyDaily > data[m].daily) data[m].daily = legacyDaily;
+        }
+      }); const legacyEasy = +(localStorage.getItem('flor_blockblast_highscore') || 0);
+      if (legacyEasy > data.easy.best) data.easy.best = legacyEasy;
+      const legacyRescues = +(localStorage.getItem('flor_rescue_total') || 0);
+      if (legacyRescues > data._rescueTotal) data._rescueTotal = legacyRescues;
     } catch (e) {}
+    // 2. Document Cookie (400-day)
     try {
       const match = document.cookie.match(/(?:^|;\s*)flor_bb_scores_v2=([^;]*)/);
-      if (match) {
-        const cData = JSON.parse(decodeURIComponent(match[1]));
-        Object.keys(cData).forEach(k => {
-          if (!data[k] || (cData[k].best || 0) > (data[k].best || 0)) data[k] = cData[k];
-        });
+      if (match) mergeStoreObjects(data, JSON.parse(decodeURIComponent(match[1])));
+      const rMatch = document.cookie.match(/(?:^|;\s*)flor_rescue_total=([^;]*)/);
+      if (rMatch) data._rescueTotal = Math.max(data._rescueTotal, +(decodeURIComponent(rMatch[1]) || 0));
+    } catch (e) {}
+    // 3. window.name session survival across tab refreshes & cross-page jumps
+    try {
+      if (window.name && window.name.startsWith('FLOR_BB:')) {
+        mergeStoreObjects(data, JSON.parse(window.name.slice(8)));
       }
     } catch (e) {}
+    // 4. URL query backup (?s=e.m.h.i.r) if bookmarked
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const sParam = params.get('s');
+      if (sParam) {
+        const parts = sParam.split('.').map(n => parseInt(n, 36) || 0);
+        if (parts.length >= 4) {
+          ['easy', 'medium', 'hard', 'impossible'].forEach((m, idx) => {
+            if (parts[idx] > data[m].best) data[m].best = parts[idx];
+          });
+          if (parts[4] && parts[4] > data._rescueTotal) data._rescueTotal = parts[4];
+        }
+      }
+    } catch (e) {}
+    Object.assign(memStore, data);
     return data;
   }
-
+  function saveToIndexedDBAndCache(data) {
+    try {
+      if (window.indexedDB) {
+        const req = indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = e => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+        };
+        req.onsuccess = e => {
+          try {
+            const db = e.target.result;
+            const tx = db.transaction(IDB_STORE, 'readwrite');
+            tx.objectStore(IDB_STORE).put(data, STORE_KEY);
+          } catch (err) {}
+        };
+      }
+    } catch (e) {}
+    try {
+      if (window.caches) {
+        caches.open('flor-bb-cache-v1').then(cache => {
+          cache.put('/flor-bb-scores.json', new Response(JSON.stringify(data)));
+        }).catch(() => {});
+      }
+    } catch (e) {}
+  }
+  function hydrateFromAsyncStores() {
+    const applyAsync = incoming => {
+      if (!incoming) return;
+      const cur = readStore(); const before = JSON.stringify(cur);
+      mergeStoreObjects(cur, incoming);
+      if (JSON.stringify(cur) !== before) {
+        writeStore(cur); const { allTime, daily } = getScores(currentMode);
+        bestDisplay.textContent = allTime; dailyDisplay.textContent = daily;
+        updateEthanTab(0);
+      }
+    };
+    try {
+      if (window.indexedDB) {
+        const req = indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = e => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+        };
+        req.onsuccess = e => {
+          try {
+            const db = e.target.result;
+            const tx = db.transaction(IDB_STORE, 'readonly');
+            const getReq = tx.objectStore(IDB_STORE).get(STORE_KEY);
+            getReq.onsuccess = () => applyAsync(getReq.result);
+          } catch (err) {}
+        };
+      }
+    } catch (e) {}
+    try {
+      if (window.caches) {
+        caches.open('flor-bb-cache-v1').then(c => c.match('/flor-bb-scores.json'))
+          .then(r => r ? r.json() : null)
+          .then(applyAsync)
+          .catch(() => {});
+      }
+    } catch (e) {}
+    if (CLOUD_SYNC_URL) {
+      fetch(CLOUD_SYNC_URL).then(r => r.json()).then(applyAsync).catch(() => {});
+    }
+  }
   function writeStore(data) {
-    Object.assign(memStore, data);
-    const json = JSON.stringify(data);
+    mergeStoreObjects(memStore, data); const json = JSON.stringify(memStore);
     try {
       localStorage.setItem(STORE_KEY, json);
-      if (data.easy && data.easy.best) {
-        localStorage.setItem('flor_blockblast_highscore', String(data.easy.best));
+      ['easy', 'medium', 'hard', 'impossible'].forEach(m => {
+        if (memStore[m]) {
+          localStorage.setItem(`flor_bb_best_${m}`, String(memStore[m].best || 0));
+          localStorage.setItem(`flor_bb_daily_${m}`, String(memStore[m].daily || 0));
+          localStorage.setItem(`flor_bb_date_${m}`, memStore[m].date || todayStr());
+        }
+      });
+      if (memStore.easy && memStore.easy.best) {
+        localStorage.setItem('flor_blockblast_highscore', String(memStore.easy.best));
+      }
+      if (typeof memStore._rescueTotal === 'number') {
+        localStorage.setItem('flor_rescue_total', String(memStore._rescueTotal));
       }
     } catch (e) {}
     try {
       document.cookie = `${STORE_KEY}=${encodeURIComponent(json)};max-age=34560000;path=/;SameSite=Lax`;
+      document.cookie = `flor_rescue_total=${encodeURIComponent(String(memStore._rescueTotal || 0))};max-age=34560000;path=/;SameSite=Lax`;
     } catch (e) {}
+    try {
+      window.name = 'FLOR_BB:' + json;
+    } catch (e) {}
+    try {
+      const compact = [
+        (memStore.easy?.best || 0).toString(36),
+        (memStore.medium?.best || 0).toString(36),
+        (memStore.hard?.best || 0).toString(36),
+        (memStore.impossible?.best || 0).toString(36),
+        (memStore._rescueTotal || 0).toString(36)
+      ].join('.'); const url = new URL(window.location.href);
+      url.searchParams.set('s', compact);
+      window.history.replaceState(null, '', url.toString());
+    } catch (e) {}
+    saveToIndexedDBAndCache(memStore);
+    if (CLOUD_SYNC_URL) {
+      fetch(CLOUD_SYNC_URL, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: json
+      }).catch(() => {});
+    }
   }
-
   function getScores(mode) {
     const store = readStore();
     const entry = store[mode] || {};
-    let allTime = +(entry.best || 0);
-    try {
-      allTime = Math.max(allTime, +(localStorage.getItem(`flor_bb_best_${mode}`) || 0));
-      if (mode === 'easy') allTime = Math.max(allTime, +(localStorage.getItem('flor_blockblast_highscore') || 0));
-    } catch (e) {}
+    const allTime = Math.max(+(entry.best || 0), BASELINE_SCORES[mode] || 0);
     const today = todayStr();
-    let daily = entry.date === today ? +(entry.daily || 0) : 0;
-    try {
-      if (localStorage.getItem(`flor_bb_date_${mode}`) === today) {
-        daily = Math.max(daily, +(localStorage.getItem(`flor_bb_daily_${mode}`) || 0));
-      }
-    } catch (e) {}
+    const daily = entry.date === today ? +(entry.daily || 0) : 0;
     return { allTime, daily };
   }
-
   function checkAndSaveHighScores() {
     const prev = getScores(currentMode);
     const beatRecord = score > 0 && (score > prev.allTime || score > prev.daily);
     const nextAllTime = Math.max(prev.allTime, score);
-    const nextDaily = Math.max(prev.daily, score);
-    const today = todayStr();
-
-    bestDisplay.textContent = nextAllTime;
-    dailyDisplay.textContent = nextDaily;
-
+    const nextDaily = Math.max(prev.daily, score); const today = todayStr();
+    bestDisplay.textContent = nextAllTime; dailyDisplay.textContent = nextDaily;
     const store = readStore();
     store[currentMode] = { best: nextAllTime, daily: nextDaily, date: today };
     writeStore(store);
-
-    try {
-      localStorage.setItem(`flor_bb_best_${currentMode}`, String(nextAllTime));
-      localStorage.setItem(`flor_bb_daily_${currentMode}`, String(nextDaily));
-      localStorage.setItem(`flor_bb_date_${currentMode}`, today);
-    } catch (e) {}
-
     if (beatRecord && !alertedHighThisRun) {
-      alertedHighThisRun = true;
-      showComplimentToast(HIGH_SCORE_ALERT, true, true);
+      alertedHighThisRun = true; showComplimentToast(HIGH_SCORE_ALERT, true, true);
     }
   }
-
+  function updateEthanTab(increment = 0) {
+    const store = readStore(); let count = +(store._rescueTotal || 0);
+    if (increment > 0) {
+      count += increment; store._rescueTotal = count;
+      writeStore(store);
+    }
+    const picsOwed = Math.floor(count / 10); const progress = count % 10;
+    const left = 10 - progress; const badge = document.getElementById('ethanTabBadge');
+    if (badge) {
+      if (picsOwed === 0) {
+        badge.textContent = `ethan's tab: ${progress}/10 rescues (${left} left for 1st 📸)`;
+      } else if (progress === 0) {
+        badge.textContent = `🚨 ${picsOwed} pic unlocked! ethan's tab: ${picsOwed} 📸 (0/10)`;
+      } else {
+        badge.textContent = `ethan's tab: ${picsOwed} 📸 owed • ${progress}/10 to next ✨`;
+      }
+    }
+  }
   window.addEventListener('pagehide', checkAndSaveHighScores);
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') checkAndSaveHighScores();
-  });
-
-  let audioCtx = null;
+  }); let audioCtx = null;
   function playTone(type) {
     if (!soundEnabled) return;
     try {
@@ -592,30 +659,78 @@ if (window.tailwind) {
       if (!AC) return;
       if (!audioCtx) audioCtx = new AC();
       if (audioCtx.state === 'suspended') audioCtx.resume();
-      const now = audioCtx.currentTime;
-      const osc = audioCtx.createOscillator();
+      const now = audioCtx.currentTime; const osc = audioCtx.createOscillator();
       const gain = audioCtx.createGain();
       osc.type = type === 'clear' ? 'triangle' : 'sine';
       osc.frequency.setValueAtTime(type === 'pickup' ? 350 : type === 'place' ? 280 : 520, now);
       osc.frequency.exponentialRampToValueAtTime(type === 'clear' ? 880 : 440, now + 0.09);
       gain.gain.setValueAtTime(0.09, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start(now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1); osc.connect(gain);
+      gain.connect(audioCtx.destination); osc.start(now);
       osc.stop(now + 0.1);
     } catch (e) {}
   }
-
-  const fits = (s, r, c) =>
+  const fits = (s, r, c, g = grid) =>
     r >= 0 && c >= 0 && r + s.length <= N && c + s[0].length <= N &&
-    s.every((row, i) => row.every((v, j) => !v || !grid[r + i][c + j]));
-
-  const placeable = s => {
-    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) if (fits(s, r, c)) return true;
+    s.every((row, i) => row.every((v, j) => !v || !g[r + i][c + j]));
+  const placeable = (s, g = grid) => {
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) if (fits(s, r, c, g)) return true;
     return false;
   };
-
+  const countOccupiedCells = (g = grid) => {
+    let total = 0;
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) if (g[r][c]) total++;
+    return total;
+  };
+  function simulatePlaceAndClear(s, r, c, g) {
+    const next = g.map(row => row.slice());
+    s.forEach((row, i) => row.forEach((v, j) => {
+      if (v) next[r + i][c + j] = true;
+    })); const rows = [], cols = [];
+    for (let i = 0; i < N; i++) {
+      if (next[i].every(Boolean)) rows.push(i);
+      if (next.every(row => Boolean(row[i]))) cols.push(i);
+    }
+    rows.forEach(ri => next[ri].fill(null));
+    cols.forEach(ci => next.forEach(row => { row[ci] = null; }));
+    return { next, cleared: rows.length + cols.length, remaining: countOccupiedCells(next) };
+  }
+  // Finds a 1- to 3-piece sequence that wipes or maximally clears the current board
+  function buildClearingShapes(allowFullWipe) {
+    const candidatePool = currentMode === 'easy'
+      ? [...EASY_SHAPES, [[1,1,1,1]], [[1],[1],[1],[1]]]
+      : ALL_SHAPES; const picked = [];
+    let simGrid = grid.map(row => row.slice());
+    for (let step = 0; step < 3; step++) {
+      const remBefore = countOccupiedCells(simGrid);
+      if (remBefore === 0) {
+        picked.push(rnd(EASY_SHAPES)); continue;
+      }
+      let bestMove = null;
+      for (const s of candidatePool) {
+        for (let r = 0; r <= N - s.length; r++) {
+          for (let c = 0; c <= N - s[0].length; c++) {
+            if (!fits(s, r, c, simGrid)) continue;
+            const res = simulatePlaceAndClear(s, r, c, simGrid);
+            if (!allowFullWipe && res.remaining === 0) continue;
+            const scoreMove =
+              (res.remaining === 0 && allowFullWipe ? 10000 : 0) +
+              res.cleared * 120 -
+              res.remaining * 6;
+            if (!bestMove || scoreMove > bestMove.scoreMove) {
+              bestMove = { s, next: res.next, scoreMove, remaining: res.remaining };
+            }
+          }
+        }
+      }
+      if (bestMove && (bestMove.scoreMove > -remBefore * 6)) {
+        picked.push(bestMove.s); simGrid = bestMove.next;
+      } else {
+        picked.push(pickShapeForMode());
+      }
+    }
+    return picked;
+  }
   function pickShapeForMode() {
     const roll = Math.random();
     if (currentMode === 'easy') return roll < 0.72 ? rnd(EASY_SHAPES) : roll < 0.94 ? rnd(MED_SHAPES) : rnd(HARD_SHAPES);
@@ -623,62 +738,90 @@ if (window.tailwind) {
     if (currentMode === 'hard') return roll < 0.45 ? rnd(MED_SHAPES) : roll < 0.85 ? rnd(HARD_SHAPES) : rnd(EASY_SHAPES);
     return roll < 0.72 ? rnd(HARD_SHAPES) : roll < 0.92 ? rnd(MED_SHAPES) : rnd(EASY_SHAPES);
   }
-
   function deal() {
     const palette = MODES[currentMode].colors;
-    const maxTries = currentMode === 'impossible' ? 3 : 60;
-    let tries = 0;
+    const occupied = countOccupiedCells(grid);
+    // Smart Board-Clear Pacing:
+    // - Easy Mode: full board clear is locked until easyClearGoal (40-60 turns), then actively assisted as the endgame win condition.
+    // - Medium (38%), Hard (22%), Impossible (12%): scaled exact-fit board-clear assist when board is low/mid without ending the run.
+    const canEasyEndgame = currentMode === 'easy' && turnsPlayed >= easyClearGoal;
+    const modeAssistChance =
+      currentMode === 'easy' ? (canEasyEndgame ? 0.88 : 0.45) :
+      currentMode === 'medium' ? 0.38 :
+      currentMode === 'hard' ? 0.22 : 0.12;
+    if (occupied > 0 && Math.random() < modeAssistChance) {
+      const allowFullWipe = currentMode !== 'easy' || canEasyEndgame;
+      const smartShapes = buildClearingShapes(allowFullWipe);
+      hand = smartShapes.map(s => ({
+        s,
+        col: rnd(palette),
+        icon: rnd(ICONS),
+        used: false
+      }));
+      if (hand.some(p => placeable(p.s))) return;
+    }
+    const maxTries = currentMode === 'impossible' ? 3 : 60; let tries = 0;
     do {
       hand = [0, 1, 2].map(() => ({
         s: pickShapeForMode(),
         col: rnd(palette),
         icon: rnd(ICONS),
         used: false
-      }));
-      tries++;
+      })); tries++;
+      // Prevent premature turn 1-39 accidental full board clear in Easy mode so the endgame feels earned
+      if (currentMode === 'easy' && !canEasyEndgame && occupied > 0 && occupied <= 8) {
+        const wouldWipe = hand.some(p => {
+          for (let r = 0; r <= N - p.s.length; r++) {
+            for (let c = 0; c <= N - p.s[0].length; c++) {
+              if (fits(p.s, r, c) && simulatePlaceAndClear(p.s, r, c, grid).remaining === 0) return true;
+            }
+          }
+          return false;
+        });
+        if (wouldWipe && tries < maxTries) continue;
+      }
       if (currentMode === 'easy' && hand.every(p => placeable(p.s))) break;
       if (currentMode !== 'easy' && hand.some(p => placeable(p.s))) break;
     } while (tries < maxTries);
   }
-
   function updateRescueUI() {
     rescueQuickBtn.disabled = rescuesLeft <= 0;
     rescueQuickBtn.style.opacity = rescuesLeft <= 0 ? '0.4' : '1';
   }
-
   function reset() {
+    if (score > 0) checkAndSaveHighScores();
     grid = Array.from({ length: N }, () => Array(N).fill(null));
-    score = 0;
-    combo = 0;
-    over = false;
-    drag = null;
-    alertedHighThisRun = false;
-    rescuesLeft = MODES[currentMode].rescues;
-    scoreDisplay.textContent = '0';
-    const { allTime, daily } = getScores(currentMode);
-    bestDisplay.textContent = allTime;
-    dailyDisplay.textContent = daily;
-    updateRescueUI();
-    gameOverModal.classList.add('hidden');
-    deal();
+    score = 0; combo = 0;
+    turnsPlayed = 0;
+    easyClearGoal = 42 + ((Math.random() * 17) | 0); // 42 to 58 turns target window
+    over = false; drag = null;
+    alertedHighThisRun = false; rescuesLeft = MODES[currentMode].rescues;
+    scoreDisplay.textContent = '0'; const { allTime, daily } = getScores(currentMode);
+    bestDisplay.textContent = allTime; dailyDisplay.textContent = daily;
+    updateRescueUI(); updateEthanTab(0);
+    gameOverModal.classList.add('hidden'); deal();
     draw();
   }
-
-  function openGameOverModal() {
-    if (rescuesLeft > 0) {
+  function openGameOverModal(isEasyVictory = false) {
+    if (isEasyVictory) {
+      modalTitleText.textContent = EASY_ENDGAME_TEXT;
+      modalBodyText.innerHTML = `you wiped the whole board clean in <span class="font-extrabold themed-score-text">${turnsPlayed}</span> turns with <span class="font-extrabold themed-score-text">${score}</span> pts!! 🌷🩷✨`;
+      ethanRescueBtn.classList.add('hidden');
+    } else if (rescuesLeft > 0) {
+      modalTitleText.textContent = 'its joever';
       modalBodyText.innerHTML = `let all that stress go‼️‼️want ethan to clear the center 4×4 &amp; deal fresh pieces so you can keep your <span class="font-extrabold themed-score-text">${score}</span> pt streak going?`;
       ethanRescueBtn.classList.remove('hidden');
     } else {
+      modalTitleText.textContent = 'its joever';
       modalBodyText.innerHTML = `let all that stress go‼️‼️you dropped <span class="font-extrabold themed-score-text">${score}</span> pts!`;
       ethanRescueBtn.classList.add('hidden');
     }
     gameOverModal.classList.remove('hidden');
   }
-
   function useEthansRescue() {
     if (rescuesLeft <= 0) return;
     if (rescuesLeft !== Infinity) rescuesLeft--;
-    updateRescueUI();
+    updateRescueUI(); updateEthanTab(1);
     for (let r = 2; r <= 5; r++) {
       for (let c = 2; c <= 5; c++) grid[r][c] = null;
     }
@@ -687,49 +830,40 @@ if (window.tailwind) {
       hand = hand.map(h => h.used ? h : { s: [[1,1],[1,1]], col: rnd(palette), icon: rnd(ICONS), used: false });
       if (!hand.some(h => !h.used && placeable(h.s))) deal();
     }
-    over = false;
-    gameOverModal.classList.add('hidden');
+    over = false; gameOverModal.classList.add('hidden');
     showComplimentToast("ethan's rescue gotchu honey bun 🩷✨", false);
-    spawnParticles(['🩷', '✨', '🌷']);
-    playTone('clear');
+    spawnParticles(['🩷', '✨', '🌷', '🎀', '🐈']); playTone('clear');
     draw();
   }
-
   function showComplimentToast(message, isBig = false, isHighScore = false) {
     if (toastTimeout) clearTimeout(toastTimeout);
-    toastContainer.innerHTML = '';
-    const banner = document.createElement('div');
+    toastContainer.innerHTML = ''; const banner = document.createElement('div');
     banner.className =
-      'compliment-toast absolute left-1/2 top-0 z-40 px-4 py-2.5 rounded-3xl shadow-2xl border-2 font-hand font-bold ' +
+      'compliment-toast absolute left-1/2 -top-11 z-40 px-4 py-2 rounded-3xl shadow-2xl border-2 font-hand font-bold ' +
       (isBig ? 'themed-pill-active ' : 'themed-pill ') +
-      (isHighScore ? 'highscore-toast' : '');
-    banner.textContent = message;
+      (isHighScore ? 'highscore-toast' : ''); banner.textContent = message;
     toastContainer.appendChild(banner);
     toastTimeout = setTimeout(() => {
       if (banner.parentNode) banner.remove();
-    }, 3700);
+    }, 3200);
   }
-
   function spawnParticles(emojis) {
     const rect = cv.getBoundingClientRect();
     const count = Math.min(10, 18 - activeParticles.length);
     for (let i = 0; i < count; i++) {
-      const el = document.createElement('span');
-      el.className = 'celebration-particle';
+      const el = document.createElement('span'); el.className = 'celebration-particle';
       el.textContent = rnd(emojis);
       el.style.left = rect.left + rect.width * (0.2 + Math.random() * 0.6) + 'px';
       el.style.top = rect.top + rect.height * (0.2 + Math.random() * 0.45) + 'px';
       el.style.setProperty('--dx', (Math.random() - 0.5) * 100 + 'px');
       el.style.setProperty('--dy', -(40 + Math.random() * 75) + 'px');
-      document.body.appendChild(el);
-      activeParticles.push(el);
+      document.body.appendChild(el); activeParticles.push(el);
       setTimeout(() => {
         el.remove();
         activeParticles = activeParticles.filter(p => p !== el);
       }, 1200);
     }
   }
-
   function getPotentialClears(s, r, c) {
     if (!fits(s, r, c)) return { rows: [], cols: [] };
     const temp = grid.map(row => row.slice());
@@ -741,282 +875,217 @@ if (window.tailwind) {
     }
     return { rows, cols };
   }
-
   function place(p, r, c) {
     let tiles = 0;
     p.s.forEach((row, i) => row.forEach((v, j) => {
       if (v) {
-        grid[r + i][c + j] = { col: p.col, icon: p.icon };
-        tiles++;
+        grid[r + i][c + j] = { col: p.col, icon: p.icon }; tiles++;
       }
-    }));
-    score += tiles * 10;
-
-    const rows = [], cols = [];
+    })); turnsPlayed++;
+    score += tiles * 10; const rows = [], cols = [];
     for (let i = 0; i < N; i++) {
       if (grid[i].every(Boolean)) rows.push(i);
       if (grid.every(row => Boolean(row[i]))) cols.push(i);
     }
     rows.forEach(ri => grid[ri].fill(null));
     cols.forEach(ci => grid.forEach(row => { row[ci] = null; }));
-
     const cleared = rows.length + cols.length;
+    const boardWipedClean = cleared > 0 && countOccupiedCells(grid) === 0;
     if (cleared > 0) {
-      combo++;
-      score += cleared * 100 * cleared * Math.max(1, combo);
-      playTone('clear');
-      critterLeft.classList.remove('critter-wiggle');
-      critterRight.classList.remove('critter-wiggle');
-      void critterLeft.offsetWidth;
+      combo++; score += cleared * 100 * cleared * Math.max(1, combo);
+      if (boardWipedClean) score += 500;
+      playTone('clear'); critterLeft.classList.remove('critter-wiggle');
+      critterRight.classList.remove('critter-wiggle'); void critterLeft.offsetWidth;
       critterLeft.classList.add('critter-wiggle');
       critterRight.classList.add('critter-wiggle');
-      spawnParticles(['🩷', '✨', '🌷', '🌼', '🦋', '🍣']);
-
-      const baseMsg = cleared >= 2 ? nextBigClearText() : nextComboText();
-      const displayMsg = combo >= 2 ? `${baseMsg} (${combo}x combo!)` : baseMsg;
-      showComplimentToast(displayMsg, cleared >= 2, false);
+      spawnParticles(['🩷', '✨', '🌷', '🌼', '🦋', '🍣', '🎀', '🐈', '❤️']);
+      if (boardWipedClean && currentMode === 'easy') {
+        showComplimentToast(EASY_ENDGAME_TEXT, true, false);
+      } else {
+        const baseMsg = cleared >= 2 ? nextBigClearText() : nextComboText();
+        const displayMsg = combo >= 2 ? `${baseMsg} (${combo}x combo!)` : baseMsg;
+        showComplimentToast(displayMsg, cleared >= 2 || boardWipedClean, false);
+      }
     } else {
-      combo = 0;
-      playTone('place');
+      combo = 0; playTone('place');
     }
-
-    scoreDisplay.textContent = score;
-    checkAndSaveHighScores();
-
+    scoreDisplay.textContent = score; checkAndSaveHighScores();
     p.used = true;
+    // Easy Mode Endgame Trigger on Full Board Clear
+    if (boardWipedClean && currentMode === 'easy') {
+      over = true;
+      setTimeout(() => { if (over) openGameOverModal(true); }, 650);
+      return;
+    }
     if (hand.every(h => h.used)) deal();
     if (!hand.some(h => !h.used && placeable(h.s))) {
       over = true;
-      setTimeout(() => { if (over) openGameOverModal(); }, 260);
+      setTimeout(() => { if (over) openGameOverModal(false); }, 260);
     }
   }
-
   function roundRect(x, y, w, h, r) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.arcTo(x + w, y, x + w, y + h, r);
-    ctx.arcTo(x + w, y + h, x, y + h, r);
-    ctx.arcTo(x, y + h, x, y, r);
-    ctx.arcTo(x, y, x + w, y, r);
-    ctx.closePath();
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
   }
-
   function drawIcon(icon, cx, cy, s, isDark) {
-    if (!showArtMotifs || s < 18) return;
-    ctx.save();
-    ctx.translate(cx, cy);
-    const sc = s / 40;
+    if (!showArtMotifs || s < 16) return;
+    ctx.save(); ctx.translate(cx, cy); const sc = s / 40;
     ctx.scale(sc, sc);
     const fg = isDark ? 'rgba(255,255,255,0.9)' : 'rgba(24,24,24,0.78)';
-    ctx.fillStyle = fg;
-    ctx.strokeStyle = fg;
-    ctx.lineWidth = 1.6;
-    ctx.lineCap = 'round';
-
+    ctx.fillStyle = fg; ctx.strokeStyle = fg;
+    ctx.lineWidth = 1.6; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     if (icon === 'kiss') {
-      ctx.beginPath();
-      ctx.moveTo(-7, 0);
-      ctx.quadraticCurveTo(-3, -5, 0, -2);
-      ctx.quadraticCurveTo(3, -5, 7, 0);
-      ctx.quadraticCurveTo(0, 6, -7, 0);
-      ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-7, 0); ctx.quadraticCurveTo(-3, -5, 0, -2);
+      ctx.quadraticCurveTo(3, -5, 7, 0); ctx.quadraticCurveTo(0, 6, -7, 0); ctx.fill();
     } else if (icon === 'guitar') {
-      ctx.beginPath();
-      ctx.arc(-2, 3, 4.5, 0, Math.PI * 2);
-      ctx.arc(1, -1, 3.2, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(2, -2);
-      ctx.lineTo(7, -7);
-      ctx.stroke();
+      ctx.beginPath(); ctx.arc(-2, 3, 4.5, 0, Math.PI * 2);
+      ctx.arc(1, -1, 3.2, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(2, -2); ctx.lineTo(7, -7); ctx.stroke();
     } else if (icon === 'butterfly') {
-      ctx.beginPath();
-      ctx.ellipse(-4, -2, 3.5, 4.5, -0.4, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.ellipse(-4, -2, 3.5, 4.5, -0.4, 0, Math.PI * 2);
       ctx.ellipse(4, -2, 3.5, 4.5, 0.4, 0, Math.PI * 2);
       ctx.ellipse(-3, 4, 2.5, 3.2, 0.4, 0, Math.PI * 2);
-      ctx.ellipse(3, 4, 2.5, 3.2, -0.4, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.ellipse(3, 4, 2.5, 3.2, -0.4, 0, Math.PI * 2); ctx.fill();
     } else if (icon === 'tulip') {
-      ctx.beginPath();
-      ctx.arc(0, 1, 5, 0, Math.PI);
-      ctx.lineTo(-5, -5);
-      ctx.lineTo(-2, -2);
-      ctx.lineTo(0, -6);
-      ctx.lineTo(2, -2);
-      ctx.lineTo(5, -5);
-      ctx.closePath();
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(0, 1, 5, 0, Math.PI);
+      ctx.lineTo(-5, -5); ctx.lineTo(-2, -2); ctx.lineTo(0, -6); ctx.lineTo(2, -2);
+      ctx.lineTo(5, -5); ctx.closePath(); ctx.fill();
     } else if (icon === 'lily') {
       for (let a = 0; a < 5; a++) {
-        ctx.save();
-        ctx.rotate((a * Math.PI * 2) / 5);
-        ctx.beginPath();
-        ctx.ellipse(0, -4.5, 2.2, 4.5, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        ctx.save(); ctx.rotate((a * Math.PI * 2) / 5); ctx.beginPath();
+        ctx.ellipse(0, -4.5, 2.2, 4.5, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
       }
     } else if (icon === 'octopus') {
-      ctx.beginPath();
-      ctx.arc(0, -2, 5, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(0, -2, 5, 0, Math.PI * 2); ctx.fill();
       for (let i = -2; i <= 2; i++) {
-        ctx.beginPath();
-        ctx.moveTo(i * 2.2, 2);
-        ctx.quadraticCurveTo(i * 3, 6, i * 2.5, 7);
-        ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(i * 2.2, 2);
+        ctx.quadraticCurveTo(i * 3, 6, i * 2.5, 7); ctx.stroke();
       }
     } else if (icon === 'sushi') {
-      roundRect(-6, -4, 12, 8, 3);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(0, 0, 2.6, 0, Math.PI * 2);
-      ctx.fill();
+      roundRect(-6, -4, 12, 8, 3); ctx.stroke(); ctx.beginPath();
+      ctx.arc(0, 0, 2.6, 0, Math.PI * 2); ctx.fill();
     } else if (icon === 'teddy') {
-      ctx.beginPath();
-      ctx.arc(-4.5, -4.5, 2.4, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(-4.5, -4.5, 2.4, 0, Math.PI * 2);
       ctx.arc(4.5, -4.5, 2.4, 0, Math.PI * 2);
-      ctx.arc(0, 1, 5.5, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.arc(0, 1, 5.5, 0, Math.PI * 2); ctx.fill();
     } else if (icon === 'digicam') {
-      roundRect(-7, -4, 14, 9, 2.5);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(1, 0.5, 2.8, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillRect(-5, -6, 3.5, 2);
+      roundRect(-7, -4, 14, 9, 2.5); ctx.stroke(); ctx.beginPath();
+      ctx.arc(1, 0.5, 2.8, 0, Math.PI * 2); ctx.fill(); ctx.fillRect(-5, -6, 3.5, 2);
     } else if (icon === 'monkey') {
-      ctx.beginPath();
-      ctx.arc(-6, 0, 2.2, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(-6, 0, 2.2, 0, Math.PI * 2);
       ctx.arc(6, 0, 2.2, 0, Math.PI * 2);
-      ctx.arc(0, 0, 5.2, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = isDark ? '#222' : '#FFF';
-      ctx.beginPath();
-      ctx.moveTo(-3.5, -1.5);
-      ctx.lineTo(-1, 1);
-      ctx.moveTo(3.5, -1.5);
-      ctx.lineTo(1, 1);
-      ctx.stroke();
+      ctx.arc(0, 0, 5.2, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = isDark ? '#222' : '#FFF'; ctx.beginPath();
+      ctx.moveTo(-3.5, -1.5); ctx.lineTo(-1, 1);
+      ctx.moveTo(3.5, -1.5); ctx.lineTo(1, 1); ctx.stroke();
+    } else if (icon === 'bow') {
+      // Pink ribbon bow: left/right loops, ribbon tails, center knot
+      ctx.fillStyle = isDark ? '#FFB3C6' : '#E05780'; ctx.beginPath();
+      ctx.moveTo(0, -1); ctx.bezierCurveTo(-7, -7, -9, 3, -1, 1);
+      ctx.bezierCurveTo(9, 3, 7, -7, 0, -1); ctx.fill(); ctx.stroke(); ctx.beginPath();
+      ctx.moveTo(-1.5, 1.5); ctx.lineTo(-4.5, 7);
+      ctx.moveTo(1.5, 1.5); ctx.lineTo(4.5, 7); ctx.stroke(); ctx.beginPath();
+      ctx.arc(0, -0.5, 2.1, 0, Math.PI * 2); ctx.fillStyle = fg; ctx.fill();
+    } else if (icon === 'cat') {
+      // Full-body sitting cat with pointed ears and curled tail
+      ctx.beginPath(); ctx.ellipse(-1, 3, 3.8, 4.6, 0, 0, Math.PI * 2);
+      ctx.fill(); ctx.beginPath(); ctx.arc(-1, -3.2, 3.2, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-3.8, -4.5);
+      ctx.lineTo(-3.2, -7.8); ctx.lineTo(-1.2, -5.8);
+      ctx.moveTo(1.8, -4.5); ctx.lineTo(1.2, -7.8); ctx.lineTo(-0.8, -5.8); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(2.2, 5.5);
+      ctx.quadraticCurveTo(6.8, 5.2, 5.8, -0.5); ctx.stroke();
+    } else if (icon === 'heart') {
+      // Classic plump heart
+      ctx.fillStyle = isDark ? '#FF9EBB' : '#E05780'; ctx.beginPath();
+      ctx.moveTo(0, 5.8); ctx.bezierCurveTo(-8, 0.5, -7.5, -6.5, -2.8, -6.2);
+      ctx.bezierCurveTo(-0.8, -6.0, 0, -4.0, 0, -3.2);
+      ctx.bezierCurveTo(0, -4.0, 0.8, -6.0, 2.8, -6.2);
+      ctx.bezierCurveTo(7.5, -6.5, 8, 0.5, 0, 5.8); ctx.fill(); ctx.stroke();
     }
     ctx.restore();
   }
-
   function drawBlockCell(x, y, s, cellObj, alpha = 1) {
-    ctx.save();
-    ctx.globalAlpha = alpha;
+    ctx.save(); ctx.globalAlpha = alpha;
     const pad = 1.6, rx = x + pad, ry = y + pad, rw = s - pad * 2, rh = s - pad * 2;
-    const radius = Math.min(8, s * 0.22);
-    const col = cellObj.col;
-
+    const radius = Math.min(8, s * 0.22); const col = cellObj.col;
     const grad = ctx.createLinearGradient(rx, ry, rx, ry + rh);
-    grad.addColorStop(0, col.top);
-    grad.addColorStop(1, col.bot);
-    ctx.fillStyle = grad;
-    roundRect(rx, ry, rw, rh, radius);
-    ctx.fill();
-
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = col.border;
-    ctx.stroke();
-
-    ctx.fillStyle = 'rgba(255,255,255,0.28)';
+    grad.addColorStop(0, col.top); grad.addColorStop(1, col.bot);
+    ctx.fillStyle = grad; roundRect(rx, ry, rw, rh, radius);
+    ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = col.border;
+    ctx.stroke(); ctx.fillStyle = 'rgba(255,255,255,0.28)';
     roundRect(rx + 2, ry + 1.8, rw - 4, Math.max(2.5, rh * 0.2), radius * 0.5);
-    ctx.fill();
-
-    drawIcon(cellObj.icon, x + s / 2, y + s / 2 + 0.5, s, col.dark);
+    ctx.fill(); drawIcon(cellObj.icon, x + s / 2, y + s / 2 + 0.5, s, col.dark);
     ctx.restore();
   }
-
   function drawShape(p, x, y, s, alpha = 1) {
     p.s.forEach((row, i) => row.forEach((v, j) => {
       if (v) drawBlockCell(x + j * s, y + i * s, s, p, alpha);
     }));
   }
-
-  const getLiftOffset = () => (drag && drag.isTouch ? 65 : 26);
+  // Dynamic thumb clearance: lifts higher on touch and scales with piece height so her thumb never obscures bottom tiles
+  const getLiftOffset = p => {
+    if (!drag) return 26;
+    const rows = p && p.s ? p.s.length : 1;
+    return drag.isTouch ? 88 + (rows - 1) * 10 : 34;
+  };
   const dragXY = p => ({
     x: drag.x - (p.s[0].length * C) / 2,
-    y: drag.y - getLiftOffset() - (p.s.length * C) / 2
+    y: drag.y - getLiftOffset(p) - (p.s.length * C) / 2
   });
   const target = p => {
     const t = dragXY(p);
     return { r: Math.round((t.y - BY) / C), c: Math.round((t.x - BX) / C) };
   };
-
   function draw() {
-    syncCanvasResolution();
-    ctx.clearRect(0, 0, W, H);
-    const cfg = MODES[currentMode] || MODES.easy;
-    const boardBg = cfg.boardBg;
-    const boardBorder = cfg.boardBorder;
-    const cellEmpty = cfg.cellEmpty;
-
-    ctx.fillStyle = boardBg;
-    roundRect(BX - 7, BY - 7, N * C + 14, N * C + 14, 16);
-    ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = boardBorder;
-    ctx.stroke();
-
-    let previewClears = { rows: [], cols: [] };
-    let ghostTarget = null;
+    syncCanvasResolution(); ctx.clearRect(0, 0, W, H);
+    const cfg = MODES[currentMode] || MODES.easy; const boardBg = cfg.boardBg;
+    const boardBorder = cfg.boardBorder; const cellEmpty = cfg.cellEmpty;
+    ctx.fillStyle = boardBg; roundRect(BX - 7, BY - 7, N * C + 14, N * C + 14, 16);
+    ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = boardBorder; ctx.stroke();
+    let previewClears = { rows: [], cols: [] }; let ghostTarget = null;
     if (drag && hand[drag.i]) {
       const p = hand[drag.i], { r, c } = target(p);
       if (fits(p.s, r, c)) {
-        ghostTarget = { p, r, c };
-        previewClears = getPotentialClears(p.s, r, c);
+        ghostTarget = { p, r, c }; previewClears = getPotentialClears(p.s, r, c);
       }
     }
-
     for (let r = 0; r < N; r++) {
       for (let c = 0; c < N; c++) {
         const cx = BX + c * C, cy = BY + r * C;
         if (grid[r][c]) {
           drawBlockCell(cx, cy, C, grid[r][c], 1);
         } else {
-          ctx.fillStyle = cellEmpty;
-          roundRect(cx + 2, cy + 2, C - 4, C - 4, 8);
+          ctx.fillStyle = cellEmpty; roundRect(cx + 2, cy + 2, C - 4, C - 4, 8);
           ctx.fill();
         }
         if (previewClears.rows.includes(r) || previewClears.cols.includes(c)) {
           ctx.fillStyle = 'rgba(224, 87, 128, 0.34)';
-          roundRect(cx + 1, cy + 1, C - 2, C - 2, 8);
-          ctx.fill();
+          roundRect(cx + 1, cy + 1, C - 2, C - 2, 8); ctx.fill();
         }
       }
     }
-
     if (ghostTarget) {
       drawShape(ghostTarget.p, BX + ghostTarget.c * C, BY + ghostTarget.r * C, C, 0.45);
     }
-
-    ctx.fillStyle = boardBg;
-    roundRect(BX - 7, TY - 4, N * C + 14, 110, 16);
-    ctx.fill();
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = boardBorder;
-    ctx.stroke();
-
+    ctx.fillStyle = boardBg; roundRect(BX - 7, TY - 4, N * C + 14, 110, 16);
+    ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = boardBorder; ctx.stroke();
     hand.forEach((p, i) => {
       if (p.used || (drag && drag.i === i)) return;
       const maxDim = Math.max(p.s.length, p.s[0].length);
       const s = maxDim >= 5 ? 16 : maxDim === 4 ? 18 : 21;
       const sx = BX + 52 + i * 108 - (p.s[0].length * s) / 2;
       const sy = TY + 50 - (p.s.length * s) / 2;
-      drawShape(p, sx, sy, s, placeable(p.s) ? 1 : 0.35);
-    });
-
+      drawShape(p, sx, sy, s, placeable(p.s) ? 1 : 0.35); });
     if (drag && hand[drag.i]) {
-      const p = hand[drag.i], t = dragXY(p);
-      drawShape(p, t.x, t.y, C, 0.96);
+      const p = hand[drag.i], t = dragXY(p); drawShape(p, t.x, t.y, C, 0.96);
     }
   }
-
   const pos = e => {
     const b = cv.getBoundingClientRect();
     return { x: ((e.clientX - b.left) * W) / (b.width || W), y: ((e.clientY - b.top) * H) / (b.height || H) };
   };
-
   cv.addEventListener('pointerdown', e => {
     if (over) return;
     const { x, y } = pos(e);
@@ -1025,58 +1094,40 @@ if (window.tailwind) {
       if (hand[i] && !hand[i].used) {
         drag = { i, x, y, isTouch: e.pointerType === 'touch' || e.pointerType === 'pen' };
         try { cv.setPointerCapture(e.pointerId); } catch (err) {}
-        playTone('pickup');
-        draw();
+        playTone('pickup'); draw();
       }
     }
   });
-
   cv.addEventListener('pointermove', e => {
     if (!drag) return;
-    e.preventDefault();
-    Object.assign(drag, pos(e));
-    draw();
-  });
-
+    e.preventDefault(); Object.assign(drag, pos(e));
+    draw(); });
   const endDrag = () => {
     if (!drag) return;
     const p = hand[drag.i], { r, c } = target(p);
     if (fits(p.s, r, c)) place(p, r, c);
-    drag = null;
-    draw();
-  };
-  cv.addEventListener('pointerup', endDrag);
+    drag = null; draw();
+  }; cv.addEventListener('pointerup', endDrag);
   cv.addEventListener('pointercancel', endDrag);
-
   document.getElementById('ethanRescueBtn').addEventListener('click', useEthansRescue);
   rescueQuickBtn.addEventListener('click', useEthansRescue);
   document.getElementById('freshGameBtn').addEventListener('click', reset);
   document.getElementById('restartQuickBtn').addEventListener('click', reset);
-
   document.getElementById('backToIndexBtn').addEventListener('click', () => {
-    checkAndSaveHighScores();
-    const targetUrl = ['index', 'html'].join('.') + '#note';
-    window.location.assign(targetUrl);
-  });
-
+    checkAndSaveHighScores(); const targetUrl = ['index', 'html'].join('.') + '#note';
+    window.location.assign(targetUrl); });
   const toggleIconsBtn = document.getElementById('toggleIconsBtn');
   toggleIconsBtn.addEventListener('click', () => {
     showArtMotifs = !showArtMotifs;
-    toggleIconsBtn.textContent = showArtMotifs ? '🌷 art: on' : '🌷 art: pastel';
-    draw();
-  });
-
-  const soundToggleBtn = document.getElementById('soundToggleBtn');
+    toggleIconsBtn.textContent = showArtMotifs ? '🌷 art: on' : '🌷 art: pastel'; draw();
+  }); const soundToggleBtn = document.getElementById('soundToggleBtn');
   soundToggleBtn.addEventListener('click', () => {
-    soundEnabled = !soundEnabled;
-    soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
+    soundEnabled = !soundEnabled; soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
     if (soundEnabled) playTone('pickup');
-  });
-
-  const modeBtns = document.querySelectorAll('.mode-btn');
+  }); const modeBtns = document.querySelectorAll('.mode-btn');
   modeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      currentMode = btn.getAttribute('data-mode');
+      checkAndSaveHighScores(); currentMode = btn.getAttribute('data-mode');
       if (currentMode === 'easy') {
         document.body.removeAttribute('data-mode');
       } else {
@@ -1086,12 +1137,9 @@ if (window.tailwind) {
         b.className = 'mode-btn themed-pill flex-1 py-1 rounded-full text-[11px] font-bold';
       });
       btn.className = 'mode-btn themed-pill-active flex-1 py-1 rounded-full text-[11px] font-extrabold';
-      reset();
-    });
-  });
-
-  window.addEventListener('resize', draw);
-  reset();
+      reset(); });
+  }); window.addEventListener('resize', draw);
+  reset(); hydrateFromAsyncStores();
 })();
 </script>
 </body>
