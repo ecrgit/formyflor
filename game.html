@@ -227,7 +227,7 @@ if (window.tailwind) {
         </div>
       </div>
       <div id="ethanTabBadge" class="text-[11px] font-extrabold themed-heading text-center pt-0.5">
-        ethan's tab: 0/10 rescues (10 left for 1st 📸)
+        boobiez punch-card: 0/10 stamps (10 left for 📸)
       </div>
     </div>
     <div id="toastContainer" class="relative w-full h-0 z-40 pointer-events-none"></div>
@@ -264,7 +264,7 @@ if (window.tailwind) {
         <div class="w-full flex flex-col gap-2 mt-1">
           <button id="ethanRescueBtn" type="button"
             class="themed-pill-active w-full py-2.5 px-4 rounded-2xl font-extrabold text-xs shadow-md active:scale-95">
-            use ethan's rescue (for 1 boobiez pic)
+            use ethan's rescue (punch-card: 1/10 💳)
           </button>
           <button id="freshGameBtn" type="button"
             class="themed-pill w-full py-2 px-4 rounded-2xl font-bold text-xs active:scale-95">
@@ -631,20 +631,20 @@ if (window.tailwind) {
     }
   }
   function updateEthanTab(increment = 0) {
-    const store = readStore(); let count = +(store._rescueTotal || 0);
-    if (increment > 0) {
-      count += increment; store._rescueTotal = count;
-      writeStore(store);
+    const store = readStore();
+    let count = +(store._rescueTotal || 0);
+    if (increment > 0) { count += increment; store._rescueTotal = count; writeStore(store); }
+    const picsOwed = Math.floor(count / 10); const progress = count % 10; const left = 10 - progress;
+    const currentProgress = (count % 10) + 1;
+    if (ethanRescueBtn) {
+      ethanRescueBtn.textContent = `use ethan's rescue (punch-card: ${currentProgress}/10 💳)`;
     }
-    const picsOwed = Math.floor(count / 10); const progress = count % 10;
-    const left = 10 - progress; const badge = document.getElementById('ethanTabBadge');
+    const badge = document.getElementById('ethanTabBadge');
     if (badge) {
       if (picsOwed === 0) {
-        badge.textContent = `ethan's tab: ${progress}/10 rescues (${left} left for 1st 📸)`;
-      } else if (progress === 0) {
-        badge.textContent = `🚨 ${picsOwed} pic unlocked! ethan's tab: ${picsOwed} 📸 (0/10)`;
+        badge.textContent = `boobiez punch-card: ${progress}/10 stamps (${left} left for 📸)`;
       } else {
-        badge.textContent = `ethan's tab: ${picsOwed} 📸 owed • ${progress}/10 to next ✨`;
+        badge.textContent = `ethan's tab: ${picsOwed} 📸 owed • punch-card: ${progress}/10 ✨`;
       }
     }
   }
